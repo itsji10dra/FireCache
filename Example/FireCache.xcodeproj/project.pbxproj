@@ -30,6 +30,7 @@
 /* Begin PBXFileReference section */
 		01153414F993A818E3269FFC /* Pods-FireCache_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireCache_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireCache_Tests/Pods-FireCache_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		07BA3A12219F3E8400BCE1DE /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		07BA3A14219F3F7600BCE1DE /* Challenge.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Challenge.pdf; sourceTree = "<group>"; };
 		14F6A7B9A3D59134797D86CD /* Pods_FireCache_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		177451D7E70FEB0A942AA6E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		18AAC7B27B519ED40B7ECC3B /* Pods_FireCache_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +91,7 @@
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
+				07BA3A14219F3F7600BCE1DE /* Challenge.pdf */,
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for FireCache */,
 				607FACE81AFB9204008FA782 /* Tests */,
