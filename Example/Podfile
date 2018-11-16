@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FireCache_Example' do
+  pod 'FireCache', :path => '../'
+
+  target 'FireCache_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
