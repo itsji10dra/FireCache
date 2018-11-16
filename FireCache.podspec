@@ -21,14 +21,14 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/Jitendra/FireCache'
+  s.homepage         = 'https://github.com/itsji10dra/FireCache'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Jitendra' => 'jitendra.gandhi@yoozoo.com' }
-  s.source           = { :git => 'https://github.com/Jitendra/FireCache.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Jitendra' => 'itsji10dra@gmail.com' }
+  s.source           = { :git => 'https://github.com/itsji10dra/FireCache.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/itsji10dra'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'FireCache/Classes/**/*'
   

@@ -1,0 +1,16 @@
+PODS:
+  - FireCache (0.1.0)
+
+DEPENDENCIES:
+  - FireCache (from `../`)
+
+EXTERNAL SOURCES:
+  FireCache:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FireCache: 1eeb50d03e03f54ee047e121fb154cec538be8fb
+
+PODFILE CHECKSUM: e4e4b06552d1a47aab064df304ae2e19132eb73c
+
+COCOAPODS: 1.5.3

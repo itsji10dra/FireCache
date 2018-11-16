@@ -3,7 +3,7 @@
 //  FireCache
 //
 //  Created by Jitendra on 11/16/2018.
-//  Copyright (c) 2018 Jitendra. All rights reserved.
+//  Copyright (c) 2018 itsji10dra.com. All rights reserved.
 //
 
 import UIKit

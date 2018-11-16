@@ -22,7 +22,7 @@ pod 'FireCache'
 
 ## Author
 
-Jitendra, jitendra.gandhi@yoozoo.com
+Jitendra, itsji10dra@gmail.com
 
 ## License
 
