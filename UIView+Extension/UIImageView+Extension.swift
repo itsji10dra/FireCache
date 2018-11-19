@@ -26,7 +26,7 @@ extension UIImageView {
         self.imageURL = url
         self.image = placeholder
         
-        FireImageManager.shared.fetchObject(with: url) { [weak self] (image, url) in
+        FireImageManager.shared.fetch(with: url) { [weak self] (image, url) in
             DispatchQueue.main.async {
                 guard let strongSelf = self, url == strongSelf.imageURL else { return }
                 strongSelf.image = image

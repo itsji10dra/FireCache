@@ -20,10 +20,6 @@ public class FireCache<T: Cacheable> {
         }
     }
     
-    private let imageCost: ((UIImage) -> Int) = { image in
-        return Int(image.size.height * image.size.width * image.scale)
-    }
-    
     // MARK: - Initializer
     
     public init() {

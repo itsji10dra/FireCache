@@ -18,7 +18,7 @@ public class FireManager<T: Cacheable> {
     
     // MARK: - Initializer
     
-    init() {
+    public init() {
         self.downloader = FireDownloader<T>()
         self.cache = FireCache<T>()
     }
@@ -26,8 +26,8 @@ public class FireManager<T: Cacheable> {
     // MARK: - Public Methods
     
     @discardableResult
-    public func fetchObject(with url: URL,
-                            completionHandler: ((T, URL) -> Void)? = nil) -> URLSessionDataTask? {
+    public func fetch(with url: URL,
+                      completionHandler: ((T, URL) -> Void)? = nil) -> URLSessionDataTask? {
         
         let key = url.lastPathComponent
         
@@ -44,5 +44,10 @@ public class FireManager<T: Cacheable> {
                 completionHandler?(object, url)
             }
         })
+    }
+    
+    public func invalidate() {
+        downloader.removeAllLoads()
+        cache.clearMemoryCache()
     }
 }

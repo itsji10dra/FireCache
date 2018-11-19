@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import FireCache
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
+        guard let url = URL(string: "https://pastebin.com/raw/wgkJgazE") else { return }
+        
+        FireJSONManager.shared.fetch(with: url) { [weak self] (json, url) in
+            print(json)
+        }
     }
 }
 

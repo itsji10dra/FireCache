@@ -68,6 +68,11 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
         return loadObjectForURL.dataTask ?? URLSessionDataTask()
     }
     
+    public func removeAllLoads() {
+        session.invalidateAndCancel()
+        fetchLoads.removeAll()
+    }
+    
     // MARK: - Private Methods
     
     private func processObject(for url: URL) {
