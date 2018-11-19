@@ -10,11 +10,11 @@ import Foundation
 
 struct Post: Decodable {
     
-    enum PostImage: String, Decodable {
-        case raw, full, regular, small, thumb
+    struct PostImage: Decodable {
+        let regular: URL
     }
 
-    let id: Int32
+    let id: String
     
     let color: String
     
@@ -22,13 +22,16 @@ struct Post: Decodable {
     
     let likedByUser: Bool
     
-    let images: [PostImage:URL]
+    let user: User
+    
+    let images: PostImage
     
     enum CodingKeys: String, CodingKey {
         case id
         case color
         case likes
         case likedByUser = "liked_by_user"
+        case user
         case images = "urls"
     }
 }

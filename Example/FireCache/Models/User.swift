@@ -10,8 +10,10 @@ import Foundation
 
 struct User: Decodable {
     
-    enum ProfileImage: String, Decodable {
-        case small, medium, large
+    struct ProfileImage: Decodable {
+        let small: URL
+        let medium: URL
+        let large: URL
     }
 
     let id: String
@@ -20,7 +22,7 @@ struct User: Decodable {
     
     let name: String
     
-    let profileImages: [ProfileImage:URL]
+    let profileImages: ProfileImage
     
     enum CodingKeys: String, CodingKey {
         case id

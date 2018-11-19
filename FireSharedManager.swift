@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class FireImageManager {
+public final class FireImageManager {
     
     //Shared Image Manager used for downloading images.
     public static let shared: FireManager<UIImage> = {
@@ -15,7 +15,7 @@ public class FireImageManager {
     }()
 }
 
-public class FireJSONManager {
+public final class FireJSONManager {
     
     //Shared JSON Manager used for downloading Json data.
     public static let shared: FireManager<JSON> = {
