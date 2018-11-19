@@ -21,7 +21,7 @@ extension PasteBinListVC: UIScrollViewDelegate {
     }
 }
 
-extension PasteBinListVC: UICollectionViewDataSource {
+extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDataSource
     
@@ -37,7 +37,25 @@ extension PasteBinListVC: UICollectionViewDataSource {
         
         cell?.nameLabel?.text = infoObj.name
         cell?.userIconImageView.setImage(with: infoObj.userIconURL, placeholder: #imageLiteral(resourceName: "fire-placeholder"))
+        cell?.postImageView.setImage(with: infoObj.postImageURL, placeholder: #imageLiteral(resourceName: "fire-placeholder"))
+        cell?.likesCountLabel?.text = infoObj.totalLikes
+        cell?.likeButton.isSelected = infoObj.isLikedByUser
+        
+        cell?.likeActionBlock = { isSelected in
+            //1. Update on server
+            //2. If success, refresh `pagingViewModel`
+            //3. Reload `postCollectionView` or just reload this `cell`
+        }
         
         return cell ?? UICollectionViewCell()
+    }
+    
+    // MARK: - UICollectionViewDelegate
+
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: collectionView.frame.width, height: 225)
     }
 }

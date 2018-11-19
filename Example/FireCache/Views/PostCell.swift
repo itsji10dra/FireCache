@@ -10,8 +10,26 @@ import UIKit
 
 class PostCell: UICollectionViewCell {
     
+    // MARK: - IBOutlets
+
     @IBOutlet weak var userIconImageView: UIImageView!
 
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var postImageView: UIImageView!
+
+    @IBOutlet weak var likesCountLabel: UILabel!
+
+    @IBOutlet weak var likeButton: UIButton!
+    
+    // MARK: - Blocks
+
+    internal var likeActionBlock: ((_ isSelected: Bool) -> Void)?
+    
+    // MARK: - IBOutlets Actions
+    
+    @IBAction func likeButtonAction(_ sender: UIButton) {
+        let isSelected = sender.isSelected
+        likeActionBlock?(isSelected)
+    }
 }

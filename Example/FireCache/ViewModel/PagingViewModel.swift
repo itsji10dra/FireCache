@@ -19,19 +19,13 @@ class PagingViewModel<T, E> where T:Decodable {
     
     // MARK: - Private Properties
     
-    private lazy var receivedDataSource: [T] = []
-    
     private lazy var dataSource: [E] = []
     
     private var dataTask: URLSessionDataTask?
     
     private lazy var networkManager = NetworkManager()
     
-    private var failedTaskCount: Int = 0
-    
-    private var totalRequestMade: Int {
-        return dataTask?.taskIdentifier ?? 0
-    }
+    private var lastPageLoaded: Int = -1
     
     // MARK: - Public Properties
     
@@ -57,27 +51,21 @@ class PagingViewModel<T, E> where T:Decodable {
     @discardableResult
     public func loadMoreData(handler: @escaping PagingDataResult) -> (isLoading: Bool, page: Int) {
         
-        let nextPage = 0
+        //Figure out next page number to be loaded
+        let nextPage = lastPageLoaded + 1
         
-        guard dataTask?.state != .running else { return (true, nextPage) } //Do not load, if last data task is already in progress.
+        //Do not load, if last data task is already in progress.
+        guard dataTask?.state != .running else { return (true, nextPage) }
 
-//        let totalSuccessfullRequest = totalRequestMade - failedTaskCount
-//
-//        guard totalSuccessfullRequest == Int(nextPage) &&   //Checking right track.
-//            (nextPage == 0 ||       //Just load, coz it's first page.
-//                nextPage < pageInfo.totalPages) else { return (false, nextPage) }   //Load, only if next page is available.
+        //Add `if` statement and load, only if next page is available.
         
+        //Load next page
         loadData(page: UInt(nextPage), completionHandler: handler)
         
         return (true, nextPage)
     }
     
-    public func dataSource(at index: Int) -> T? {
-        return index < receivedDataSource.count ? receivedDataSource[index] : nil
-    }
-    
     public func clearDataSource() {
-        receivedDataSource.removeAll()
         dataSource.removeAll()
     }
     
@@ -87,7 +75,8 @@ class PagingViewModel<T, E> where T:Decodable {
         
         print("Loading Page:", number, " ↔️ Endpoint:", endPoint.rawValue)
         
-        guard let url = URLManager.getURLForEndpoint(endpoint: endPoint, page: nil) else { return }     //Passing page as `nil` for `pastebin.com`
+        //Passing page as `nil` for `pastebin.com` -- This will load same page again n again.
+        guard let url = URLManager.getURLForEndpoint(endpoint: endPoint, page: nil) else { return }
         
         dataTask = networkManager.dataTaskFromURL(url,
                                                   completion: { [weak self] (result: Result<[T]>) in
@@ -98,7 +87,7 @@ class PagingViewModel<T, E> where T:Decodable {
                 
                 guard let data = self?.transform(response) else { return completionHandler([], nil, number) }
                 
-                self?.receivedDataSource.append(contentsOf: response)
+                self?.lastPageLoaded = Int(number)
                 
                 self?.dataSource.append(contentsOf: data)
                 
@@ -106,7 +95,6 @@ class PagingViewModel<T, E> where T:Decodable {
                 
             case .failure(let error):
                 print(" • Page:", number, " failed. Reason: ", error.localizedDescription)
-                self?.failedTaskCount += 1
                 completionHandler(nil, error, number)
             }
             
