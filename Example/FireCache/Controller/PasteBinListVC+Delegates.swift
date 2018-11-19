@@ -56,6 +56,6 @@ extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDelegateFl
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.width, height: 225)
+        return CGSize(width: collectionView.frame.width, height: 300)
     }
 }

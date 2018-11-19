@@ -29,6 +29,7 @@ class PostCell: UICollectionViewCell {
     // MARK: - IBOutlets Actions
     
     @IBAction func likeButtonAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
         let isSelected = sender.isSelected
         likeActionBlock?(isSelected)
     }
