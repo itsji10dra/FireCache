@@ -20,7 +20,8 @@ class PasteBinListVC: UIViewController {
     // MARK: - Data
 
     struct ListDisplayModel {
-        var name: String = ""
+        let name: String
+        let userIconURL: URL
     }
     
     internal let cellIdentifier = "PostCell"
@@ -36,7 +37,8 @@ class PasteBinListVC: UIViewController {
 
         pagingModel = PagingViewModel<Post, ListDisplayModel>(endPoint: .posts,
                                                               transform: { result -> [ListDisplayModel] in
-            return result.map { ListDisplayModel(name: $0.user.name) }
+            return result.map { ListDisplayModel(name: $0.user.name,
+                                                 userIconURL: $0.user.profileImages.small) }
         })
         
         loadPosts()

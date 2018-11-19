@@ -41,8 +41,20 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Knn-DD-Vxs">
+                                                            <rect key="frame" x="10" y="14.5" width="40" height="40"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="FDc-eJ-NUr"/>
+                                                                <constraint firstAttribute="height" constant="40" id="TbI-Hf-Ji3"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="20"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNg-hL-eTc">
-                                                            <rect key="frame" x="8" y="24" width="42" height="21"/>
+                                                            <rect key="frame" x="60" y="24.5" width="42" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -50,11 +62,14 @@
                                                     </subviews>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstItem="MNg-hL-eTc" firstAttribute="leading" secondItem="cBP-Kx-gE0" secondAttribute="leading" constant="8" id="B6v-Mt-Idi"/>
-                                                    <constraint firstItem="MNg-hL-eTc" firstAttribute="centerY" secondItem="cBP-Kx-gE0" secondAttribute="centerY" id="ayc-9H-k9u"/>
+                                                    <constraint firstItem="MNg-hL-eTc" firstAttribute="leading" secondItem="Knn-DD-Vxs" secondAttribute="trailing" constant="10" id="8Ys-9X-fJj"/>
+                                                    <constraint firstItem="Knn-DD-Vxs" firstAttribute="leading" secondItem="cBP-Kx-gE0" secondAttribute="leading" constant="10" id="Fvb-Dg-9HH"/>
+                                                    <constraint firstItem="Knn-DD-Vxs" firstAttribute="centerY" secondItem="cBP-Kx-gE0" secondAttribute="centerY" id="LQY-7T-mTw"/>
+                                                    <constraint firstItem="MNg-hL-eTc" firstAttribute="centerY" secondItem="Knn-DD-Vxs" secondAttribute="centerY" id="Wdf-V0-dg7"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="nameLabel" destination="MNg-hL-eTc" id="pOC-Jv-foY"/>
+                                                    <outlet property="userIconImageView" destination="Knn-DD-Vxs" id="NDu-BR-gM0"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

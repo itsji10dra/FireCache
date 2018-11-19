@@ -10,6 +10,8 @@ import UIKit
 
 class PostCell: UICollectionViewCell {
     
+    @IBOutlet weak var userIconImageView: UIImageView!
+
     @IBOutlet weak var nameLabel: UILabel!
     
 }

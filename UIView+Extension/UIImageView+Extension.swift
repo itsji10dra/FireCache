@@ -21,7 +21,7 @@ extension UIImageView {
     
     // MARK: - Public
     
-    public func setImage(with url: URL, placeholder: UIImage? = nil, useDiskCache diskCache: Bool = false) {
+    public func setImage(with url: URL, placeholder: UIImage? = nil) {
         
         self.imageURL = url
         self.image = placeholder

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FireCache
 
 extension PasteBinListVC: UIScrollViewDelegate {
     
@@ -35,6 +36,7 @@ extension PasteBinListVC: UICollectionViewDataSource {
         let infoObj = postsArray[indexPath.row]
         
         cell?.nameLabel?.text = infoObj.name
+        cell?.userIconImageView.setImage(with: infoObj.userIconURL, placeholder: #imageLiteral(resourceName: "fire-placeholder"))
         
         return cell ?? UICollectionViewCell()
     }
