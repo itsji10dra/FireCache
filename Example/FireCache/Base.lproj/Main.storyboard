@@ -113,7 +113,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYB-aA-V0m">
-                                                                    <rect key="frame" x="60" y="14.5" width="42" height="21"/>
+                                                                    <rect key="frame" x="55" y="14.5" width="42" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -133,7 +133,7 @@
                                                                     <variation key="heightClass=compact-widthClass=regular" constant="40"/>
                                                                 </constraint>
                                                                 <constraint firstAttribute="bottom" secondItem="J2O-xd-p0Q" secondAttribute="bottom" id="FVB-pJ-uoP"/>
-                                                                <constraint firstItem="DYB-aA-V0m" firstAttribute="leading" secondItem="Cnr-6Z-N7H" secondAttribute="trailing" constant="5" id="K0l-RL-bsp"/>
+                                                                <constraint firstItem="DYB-aA-V0m" firstAttribute="leading" secondItem="Cnr-6Z-N7H" secondAttribute="trailing" id="K0l-RL-bsp"/>
                                                                 <constraint firstItem="J2O-xd-p0Q" firstAttribute="leading" secondItem="0bV-zY-nCD" secondAttribute="leading" id="RDx-Md-9ne"/>
                                                                 <constraint firstAttribute="height" constant="50" id="ZPN-21-kFG"/>
                                                                 <constraint firstItem="Cnr-6Z-N7H" firstAttribute="centerY" secondItem="0bV-zY-nCD" secondAttribute="centerY" id="gCb-wK-UxR"/>

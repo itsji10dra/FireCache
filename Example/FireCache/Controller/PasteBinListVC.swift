@@ -54,7 +54,7 @@ class PasteBinListVC: UIViewController {
             return result.map { ListDisplayModel(name: $0.user.name,
                                                  userIconURL: $0.user.profileImages.small,
                                                  postImageURL: $0.images.regular,
-                                                 totalLikes: String($0.likes),
+                                                 totalLikes: "\($0.likes) likes",
                                                  isLikedByUser: $0.likedByUser,
                                                  color: UIColor(hexString: $0.color) ) }
         })
