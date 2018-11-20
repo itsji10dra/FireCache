@@ -17,6 +17,10 @@ class PasteBinListVC: UIViewController {
     
     @IBOutlet weak var loaderView: LoadingView!
 
+    // MARK: - UI
+    
+    private var refreshControl: UIRefreshControl!
+
     // MARK: - Data
 
     struct ListDisplayModel {
@@ -51,6 +55,7 @@ class PasteBinListVC: UIViewController {
                                                  colorHex: $0.color ) }
         })
         
+        loadRefreshControl()
         loadPosts()
     }
     
@@ -65,7 +70,7 @@ class PasteBinListVC: UIViewController {
         postCollectionView.collectionViewLayout.invalidateLayout()
     }
 
-    // MARK: - Loader Method
+    // MARK: - Methods
 
     internal func loadPosts() {
         
@@ -93,12 +98,25 @@ class PasteBinListVC: UIViewController {
         if loadingInfo.isLoading {
             if loadingInfo.page == 0 {
                 ActivityIndicator.startAnimating()
+                refreshControl.endRefreshing()
             } else {
                 loaderView.showMessage("Loading...", animateLoader: true)
             }
         } else {
             loaderView.hide()
         }
+    }
+    
+    private func loadRefreshControl() {
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
+        postCollectionView.addSubview(refreshControl)
+    }
+    
+    @objc
+    private func refreshData() {
+        pagingModel.clearDataSource()
+        loadPosts()
     }
     
     // MARK: - Alerts
