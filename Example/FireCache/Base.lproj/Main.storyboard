@@ -191,7 +191,8 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="dataSource" destination="vXZ-lx-hvc" id="5I5-Im-cuO"/>
-                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="0af-qf-7sp"/>
+                                            <outlet property="delegate" destination="vXZ-lx-hvc" id="G8k-Vt-kmt"/>
+                                            <outlet property="prefetchDataSource" destination="vXZ-lx-hvc" id="QJX-It-xvA"/>
                                         </connections>
                                     </collectionView>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c76-6n-ydh" customClass="LoadingView" customModule="FireCache_Example" customModuleProvider="target">
@@ -225,16 +226,16 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BlX-ii-N8k">
-                            <rect key="frame" x="51" y="42.5" width="138" height="43"/>
+                            <rect key="frame" x="57.5" y="49" width="125" height="30"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fire Cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eg-Eo-tew">
-                                    <rect key="frame" x="0.0" y="11" width="90" height="21.5"/>
+                                    <rect key="frame" x="0.0" y="4.5" width="90" height="21.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fire-small" translatesAutoresizingMaskIntoConstraints="NO" id="zqG-XU-r3x">
-                                    <rect key="frame" x="95" y="0.0" width="43" height="43"/>
+                                    <rect key="frame" x="95" y="0.0" width="30" height="30"/>
                                 </imageView>
                             </subviews>
                         </stackView>
@@ -250,6 +251,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="fire-small" width="43.200000762939453" height="43.200000762939453"/>
+        <image name="fire-small" width="30" height="30"/>
     </resources>
 </document>

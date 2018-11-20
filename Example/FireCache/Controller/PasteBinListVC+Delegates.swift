@@ -21,7 +21,7 @@ extension PasteBinListVC: UIScrollViewDelegate {
     }
 }
 
-extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDataSource
     
@@ -51,7 +51,17 @@ extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDelegateFl
         return cell ?? UICollectionViewCell()
     }
     
-    // MARK: - UICollectionViewDelegate
+    // MARK: - UICollectionViewDataSourcePrefetching
+
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+        let urls = indexPaths.compactMap { postsArray[$0.row].postImageURL }
+        urls.forEach {
+            FireImageManager.shared.fetch(with: $0)
+        }
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
 
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -59,10 +69,8 @@ extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDelegateFl
         
         let isIPad = UIDevice.current.userInterfaceIdiom == .pad
         
-        if isIPad {
-            return CGSize(width: collectionView.frame.width/2, height: cellHeight)
-        }
+        let numberOfColumns: CGFloat = isIPad ? 2 : 1
         
-        return CGSize(width: collectionView.frame.width, height: cellHeight)
+        return CGSize(width: collectionView.frame.width/numberOfColumns, height: cellHeight)
     }
 }
