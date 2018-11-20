@@ -14,7 +14,7 @@ struct Configuration {
 
     static let url = "https://pastebin.com/"
     
-    static let pageSize = "15"     //Adding it, just for demonstrating pagination.
+    static let pageSize = 15     //Adding it, just for demonstrating pagination.
 
     // Mark: - Initializer
     
