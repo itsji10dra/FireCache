@@ -17,6 +17,8 @@ class PasteBinListVC: UIViewController {
     
     @IBOutlet weak var loaderView: LoadingView!
 
+    @IBOutlet var titleView: UIView!
+    
     // MARK: - UI
     
     private var refreshControl: UIRefreshControl!
@@ -45,6 +47,8 @@ class PasteBinListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.titleView = titleView
+        
         pagingModel = PagingViewModel<Post, ListDisplayModel>(endPoint: .posts,
                                                               transform: { result -> [ListDisplayModel] in
             return result.map { ListDisplayModel(name: $0.user.name,

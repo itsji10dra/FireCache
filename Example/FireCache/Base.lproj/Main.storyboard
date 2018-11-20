@@ -212,15 +212,44 @@
                             <constraint firstAttribute="trailing" secondItem="Soz-eF-kCp" secondAttribute="trailing" id="ZA4-dC-mXF"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Fire Cache" id="wDc-ee-lzd"/>
+                    <navigationItem key="navigationItem" id="wDc-ee-lzd"/>
                     <connections>
                         <outlet property="loaderView" destination="c76-6n-ydh" id="LVf-yj-OuG"/>
                         <outlet property="postCollectionView" destination="y5D-Je-hw0" id="RQF-HM-b3w"/>
+                        <outlet property="titleView" destination="Y2E-be-bce" id="qOO-Ic-poB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Y2E-be-bce">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BlX-ii-N8k">
+                            <rect key="frame" x="51" y="42.5" width="138" height="43"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fire Cache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eg-Eo-tew">
+                                    <rect key="frame" x="0.0" y="11" width="90" height="21.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fire-small" translatesAutoresizingMaskIntoConstraints="NO" id="zqG-XU-r3x">
+                                    <rect key="frame" x="95" y="0.0" width="43" height="43"/>
+                                </imageView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="BlX-ii-N8k" firstAttribute="centerX" secondItem="Y2E-be-bce" secondAttribute="centerX" id="CEt-ER-Gbe"/>
+                        <constraint firstItem="BlX-ii-N8k" firstAttribute="centerY" secondItem="Y2E-be-bce" secondAttribute="centerY" id="Zli-dH-Nsp"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="2018.4000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fire-small" width="43.200000762939453" height="43.200000762939453"/>
+    </resources>
 </document>
