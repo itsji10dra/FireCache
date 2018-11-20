@@ -31,7 +31,13 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
     override init() {
         super.init()
         
-        self.session = URLSession(configuration: .ephemeral, delegate: self, delegateQueue: nil)
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = FireConfiguration.requestTimeoutSeconds
+        configuration.timeoutIntervalForResource = FireConfiguration.requestTimeoutSeconds
+        configuration.httpMaximumConnectionsPerHost = FireConfiguration.maximumSimultaneousDownloads
+        configuration.requestCachePolicy = FireConfiguration.requestCachePolicy
+
+        self.session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }
     
     // MARK: - DeInitializer
@@ -46,9 +52,7 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
                                completionHandler: CompletionHandler? = nil) -> URLSessionDataTask {
         
         func createNewDataTask(from url: URL) -> URLSessionDataTask {
-            let request = URLRequest(url: url,
-                                     cachePolicy: .reloadIgnoringLocalCacheData,
-                                     timeoutInterval: downloadTimeout)
+            let request = URLRequest(url: url)
             let dataTask = session.dataTask(with: request)
             return dataTask
         }
