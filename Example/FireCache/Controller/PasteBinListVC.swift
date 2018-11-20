@@ -31,7 +31,7 @@ class PasteBinListVC: UIViewController {
         let postImageURL: URL
         let totalLikes: String
         let isLikedByUser: Bool
-        let colorHex: String
+        let color: UIColor
     }
     
     internal let cellIdentifier = "PostCell"
@@ -56,7 +56,7 @@ class PasteBinListVC: UIViewController {
                                                  postImageURL: $0.images.regular,
                                                  totalLikes: String($0.likes),
                                                  isLikedByUser: $0.likedByUser,
-                                                 colorHex: $0.color ) }
+                                                 color: UIColor(hexString: $0.color) ) }
         })
         
         loadRefreshControl()

@@ -40,7 +40,7 @@ extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDataSource
         cell?.postImageView.setImage(with: infoObj.postImageURL, placeholder: #imageLiteral(resourceName: "fire-placeholder"))
         cell?.likesCountLabel?.text = infoObj.totalLikes
         cell?.likeButton.isSelected = infoObj.isLikedByUser
-        cell?.postImageView.backgroundColor = UIColor(hexString: infoObj.colorHex)
+        cell?.postImageView.backgroundColor = infoObj.color
         
         cell?.likeActionBlock = { isLiked in
             //1. Update on server
