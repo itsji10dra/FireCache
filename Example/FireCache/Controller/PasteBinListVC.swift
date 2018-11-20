@@ -25,10 +25,13 @@ class PasteBinListVC: UIViewController {
         let postImageURL: URL
         let totalLikes: String
         let isLikedByUser: Bool
+        let colorHex: String
     }
     
     internal let cellIdentifier = "PostCell"
     
+    internal let cellHeight: CGFloat = 300
+
     internal lazy var postsArray: [ListDisplayModel] = []
     
     internal var pagingModel: PagingViewModel<Post, ListDisplayModel>!
@@ -44,7 +47,8 @@ class PasteBinListVC: UIViewController {
                                                  userIconURL: $0.user.profileImages.small,
                                                  postImageURL: $0.images.regular,
                                                  totalLikes: String($0.likes),
-                                                 isLikedByUser: $0.likedByUser ) }
+                                                 isLikedByUser: $0.likedByUser,
+                                                 colorHex: $0.color ) }
         })
         
         loadPosts()
@@ -54,6 +58,13 @@ class PasteBinListVC: UIViewController {
         pagingModel.clearDataSource()
     }
     
+    // MARK: - ViewController
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        postCollectionView.collectionViewLayout.invalidateLayout()
+    }
+
     // MARK: - Loader Method
 
     internal func loadPosts() {

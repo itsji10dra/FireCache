@@ -40,8 +40,9 @@ extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDelegateFl
         cell?.postImageView.setImage(with: infoObj.postImageURL, placeholder: #imageLiteral(resourceName: "fire-placeholder"))
         cell?.likesCountLabel?.text = infoObj.totalLikes
         cell?.likeButton.isSelected = infoObj.isLikedByUser
+        cell?.postImageView.backgroundColor = UIColor(hexString: infoObj.colorHex)
         
-        cell?.likeActionBlock = { isSelected in
+        cell?.likeActionBlock = { isLiked in
             //1. Update on server
             //2. If success, refresh `pagingViewModel`
             //3. Reload `postCollectionView` or just reload this `cell`
@@ -56,6 +57,12 @@ extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDelegateFl
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.frame.width, height: 300)
+        let isIPad = UIDevice.current.userInterfaceIdiom == .pad
+        
+        if isIPad {
+            return CGSize(width: collectionView.frame.width/2, height: cellHeight)
+        }
+        
+        return CGSize(width: collectionView.frame.width, height: cellHeight)
     }
 }
