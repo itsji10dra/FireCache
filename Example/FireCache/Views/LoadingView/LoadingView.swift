@@ -58,8 +58,8 @@ class LoadingView: UIView {
         animateLoader ? activityIndicator.startAnimating() : activityIndicator.stopAnimating()
         
         if let timeInterval = after {
-            DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) {
-                self.hide()
+            DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) { [weak self] in
+                self?.hide()
             }
         }
     }
