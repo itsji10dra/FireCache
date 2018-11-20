@@ -14,12 +14,6 @@ public class FireCache<T: Cacheable> {
     
     private let memoryCache = NSCache<NSString, AnyObject>()
     
-    public var maxMemoryCost: UInt = 0 {
-        didSet {
-            self.memoryCache.totalCostLimit = Int(maxMemoryCost)
-        }
-    }
-    
     // MARK: - Initializer
     
     public init() {
@@ -27,6 +21,7 @@ public class FireCache<T: Cacheable> {
         let bundleId =  Bundle.main.bundleIdentifier ?? ""
         let cacheName = bundleId + ".\(T.self)"
         memoryCache.name = cacheName
+        memoryCache.totalCostLimit = FireConfiguration.maximumMemoryCost
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(clearMemoryCache),

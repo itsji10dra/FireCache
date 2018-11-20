@@ -35,7 +35,7 @@ extension Configuration {
 
     static func loadFireConfiguration() {
         
-        FireConfiguration.showLogs = true
+        FireConfiguration.showLogs = false
         FireConfiguration.requestTimeoutSeconds = 15
         FireConfiguration.resourceTimeoutSeconds = 15
         FireConfiguration.maximumSimultaneousDownloads = 20
