@@ -18,15 +18,18 @@ public struct FireLog {
     
     private static func log(_ level: Level, _ message: @autoclosure () -> String, _ error: Error? = nil) {
         if let error = error {
-            print("\(Tag)\(level.rawValue) \(message()) with error \(error)")
+            print("\(Tag)\(level.rawValue) \(message()) with error \(error.localizedDescription)")
         } else {
             print("\(Tag)\(level.rawValue) \(message())")
         }
+        print("--------------------------------------------------------------------------------------")
     }
     
     static func debug(message: @autoclosure () -> String, error: Error? = nil) {
         #if DEBUG
-            log(.debug, message, error)
+            if FireConfiguration.showLogs {
+                log(.debug, message, error)
+            }
         #endif
     }
     

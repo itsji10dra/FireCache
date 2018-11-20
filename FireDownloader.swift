@@ -33,7 +33,7 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
         
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = FireConfiguration.requestTimeoutSeconds
-        configuration.timeoutIntervalForResource = FireConfiguration.requestTimeoutSeconds
+        configuration.timeoutIntervalForResource = FireConfiguration.resourceTimeoutSeconds
         configuration.httpMaximumConnectionsPerHost = FireConfiguration.maximumSimultaneousDownloads
         configuration.requestCachePolicy = FireConfiguration.requestCachePolicy
 

@@ -9,9 +9,13 @@ import Foundation
 
 public class FireConfiguration {
     
-    public static var requestTimeoutSeconds = 60.0
+    public static var showLogs = false
     
-    public static var maximumSimultaneousDownloads = 50
+    public static var requestTimeoutSeconds = 20.0
+    
+    public static var resourceTimeoutSeconds = 20.0
+
+    public static var maximumSimultaneousDownloads = 20
     
     public static var requestCachePolicy = URLRequest.CachePolicy.useProtocolCachePolicy
 }

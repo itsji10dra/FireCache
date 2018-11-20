@@ -34,6 +34,7 @@ public class FireManager<T: Cacheable> {
         let key = url.absoluteString
         
         if let object = cache.retrieve(forKey: key) {
+            FireLog.debug(message: "Returning cached → \(T.self) for key → \(key)")
             completionHandler?(object, url, nil)
             return nil
         }
@@ -42,9 +43,11 @@ public class FireManager<T: Cacheable> {
                                          completionHandler: { [weak self] (object, error) in
                                             
             if let object = object {
+                FireLog.debug(message: "Downloaded & cached → \(T.self) for key → \(key)")
                 self?.cache.store(object, forKey: key)
                 completionHandler?(object, url, nil)
             } else if let error = error {
+                FireLog.debug(message: "Error downloading & caching → \(T.self) for key → \(key)", error: error)
                 completionHandler?(nil, url, error)
             }
         })

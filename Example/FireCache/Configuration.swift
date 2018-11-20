@@ -6,13 +6,15 @@
 //  Copyright © 2018 itsji10dra.com. All rights reserved.
 //
 
+import FireCache
+
 struct Configuration {
     
-    // Mark: - Configuration
+    // Mark: - App Configuration
 
-    static let url  = "https://pastebin.com/"
+    static let url = "https://pastebin.com/"
     
-    static let pageSize  = "15"     //Adding it, just for demonstrating pagination.
+    static let pageSize = "15"     //Adding it, just for demonstrating pagination.
 
     // Mark: - Initializer
     
@@ -24,5 +26,19 @@ struct Configuration {
         if url.isEmpty {
             fatalError("Invalid configuration found.")
         }
+    }
+}
+
+extension Configuration {
+    
+    // Mark: - Fire Configuration
+
+    static func loadFireConfiguration() {
+        
+        FireConfiguration.showLogs = true
+        FireConfiguration.requestTimeoutSeconds = 15
+        FireConfiguration.resourceTimeoutSeconds = 15
+        FireConfiguration.maximumSimultaneousDownloads = 20
+        FireConfiguration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
     }
 }
