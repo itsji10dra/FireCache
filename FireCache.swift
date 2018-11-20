@@ -14,7 +14,7 @@ public class FireCache<T: Cacheable> {
     
     private let memoryCache = NSCache<NSString, AnyObject>()
     
-    var maxMemoryCost: UInt = 0 {
+    public var maxMemoryCost: UInt = 0 {
         didSet {
             self.memoryCache.totalCostLimit = Int(maxMemoryCost)
         }

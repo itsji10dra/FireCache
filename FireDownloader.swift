@@ -10,10 +10,10 @@ import Foundation
 
 public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
     
-    public typealias CompletionHandler = ((_ object: T?, _ error: Error?) -> Void)
+    public typealias DownloadHandler = ((_ object: T?, _ error: Error?) -> Void)
     
     class ObjectFetchLoad {
-        var handlers = [CompletionHandler?]()
+        var handlers = [DownloadHandler?]()
         var responseData = NSMutableData()
         var dataTask: URLSessionDataTask?
     }
@@ -49,7 +49,7 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
     // MARK: - Public Methods
     
     public func downloadObject(with url: URL,
-                               completionHandler: CompletionHandler? = nil) -> URLSessionDataTask {
+                               completionHandler: DownloadHandler? = nil) -> URLSessionDataTask {
         
         func createNewDataTask(from url: URL) -> URLSessionDataTask {
             let request = URLRequest(url: url)

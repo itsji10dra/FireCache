@@ -10,6 +10,8 @@ import Foundation
 
 public class FireManager<T: Cacheable> {
     
+    public typealias FetchHandler = ((_ object: T?, _ url: URL, _ error: Error?) -> Void)
+
     // MARK: - Data
     
     public var cache: FireCache<T>
@@ -27,21 +29,23 @@ public class FireManager<T: Cacheable> {
     
     @discardableResult
     public func fetch(with url: URL,
-                      completionHandler: ((T, URL) -> Void)? = nil) -> URLSessionDataTask? {
+                      completionHandler: FetchHandler? = nil) -> URLSessionDataTask? {
         
-        let key = url.lastPathComponent
+        let key = url.absoluteString
         
         if let object = cache.retrieve(forKey: key) {
-            completionHandler?(object, url)
+            completionHandler?(object, url, nil)
             return nil
         }
         
         return downloader.downloadObject(with: url,
-                                         completionHandler: { [weak self] (object, _) in
+                                         completionHandler: { [weak self] (object, error) in
                                             
             if let object = object {
                 self?.cache.store(object, forKey: key)
-                completionHandler?(object, url)
+                completionHandler?(object, url, nil)
+            } else if let error = error {
+                completionHandler?(nil, url, error)
             }
         })
     }

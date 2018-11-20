@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FireConfiguration {
+public class FireConfiguration {
     
     public static var requestTimeoutSeconds = 60.0
     
