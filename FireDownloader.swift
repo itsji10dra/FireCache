@@ -20,8 +20,6 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
     
     // MARK: - Data
     
-    private var downloadTimeout: TimeInterval = 15.0
-    
     private var session: URLSession!
     
     private var fetchLoads: [URL:ObjectFetchLoad] = [:]
@@ -120,7 +118,8 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
         guard let url = task.originalRequest?.url else { return }
         
         guard error == nil else {
-            fetchLoads.removeValue(forKey: url)
+            let load = fetchLoads.removeValue(forKey: url)
+            load?.handlers.forEach({ handler in handler?(nil, error) })
             return
         }
         

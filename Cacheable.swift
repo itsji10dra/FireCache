@@ -31,40 +31,40 @@ public enum JSON: Cacheable {
     
     public typealias Object = JSON
     
-    case Dictionary([String:AnyObject])
-    case Array([AnyObject])
+    case dictionary([String:AnyObject])
+    case array([AnyObject])
     
     public static func convertFromData(_ data: Data) -> JSON? {
         do {
-            let object : Any = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
+            let object = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
             switch (object) {
             case let dictionary as [String:AnyObject]:
-                return JSON.Dictionary(dictionary)
+                return JSON.dictionary(dictionary)
             case let array as [AnyObject]:
-                return JSON.Array(array)
+                return JSON.array(array)
             default:
                 return nil
             }
         } catch {
-            print("Invalid JSON data")
+            FireLog.error(message: "Invalid JSON data", error: error)
             return nil
         }
     }
     
-    public var array : [AnyObject]! {
+    public var array: [AnyObject]? {
         switch (self) {
-        case .Dictionary(_):
+        case .dictionary(_):
             return nil
-        case .Array(let array):
+        case .array(let array):
             return array
         }
     }
     
-    public var dictionary : [String:AnyObject]! {
+    public var dictionary: [String:AnyObject]? {
         switch (self) {
-        case .Dictionary(let dictionary):
+        case .dictionary(let dictionary):
             return dictionary
-        case .Array(_):
+        case .array(_):
             return nil
         }
     }
