@@ -12,13 +12,14 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
     
     public typealias DownloadHandler = ((_ object: T?, _ error: Error?) -> Void)
     
+    // MARK: - Data
+
     class ObjectFetchLoad {
         var handlers = [DownloadHandler?]()
         var responseData = NSMutableData()
-        var dataTask: URLSessionDataTask?
+        var downloadTaskCount = 0
+        var downloadTask: FireDownloadTask<T>?
     }
-    
-    // MARK: - Data
     
     private var session: URLSession!
     
@@ -31,7 +32,6 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
         
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = FireConfiguration.requestTimeoutSeconds
-        configuration.timeoutIntervalForResource = FireConfiguration.resourceTimeoutSeconds
         configuration.httpMaximumConnectionsPerHost = FireConfiguration.maximumSimultaneousDownloads
         configuration.requestCachePolicy = FireConfiguration.requestCachePolicy
 
@@ -47,27 +47,29 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
     // MARK: - Public Methods
     
     public func downloadObject(with url: URL,
-                               completionHandler: DownloadHandler? = nil) -> URLSessionDataTask {
+                               completionHandler: DownloadHandler? = nil) -> FireDownloadTask<T>? {
         
-        func createNewDataTask(from url: URL) -> URLSessionDataTask {
+        func createNewDownloadTask(from url: URL) -> FireDownloadTask<T> {
             let request = URLRequest(url: url)
             let dataTask = session.dataTask(with: request)
-            return dataTask
+            let fireDownloadTask = FireDownloadTask<T>(dataTask: dataTask, downloader: self)
+            dataTask.resume()
+            return fireDownloadTask
         }
         
         let loadObjectForURL = fetchLoads[url] ?? ObjectFetchLoad()
         
         loadObjectForURL.handlers.append(completionHandler)
         
-        if loadObjectForURL.dataTask == nil {
-            let dataTask = createNewDataTask(from: url)
-            dataTask.resume()
-            loadObjectForURL.dataTask = dataTask
+        if loadObjectForURL.downloadTask == nil {
+            let downloadTask = createNewDownloadTask(from: url)
+            loadObjectForURL.downloadTask = downloadTask
         }
         
+        loadObjectForURL.downloadTaskCount += 1
         fetchLoads[url] = loadObjectForURL
         
-        return loadObjectForURL.dataTask ?? URLSessionDataTask()
+        return loadObjectForURL.downloadTask
     }
     
     public func removeAllLoads() {
@@ -75,6 +77,20 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
         fetchLoads.removeAll()
     }
     
+    // MARK: - Internal Methods
+
+    internal func cancel(_ task: FireDownloadTask<T>) {
+        
+        guard let url = task.url,
+            let fetchLoad = fetchLoads[url] else { return }
+
+        fetchLoad.downloadTaskCount -= 1
+        
+        if fetchLoad.downloadTaskCount == 0 {
+            task.dataTask.cancel()
+        }
+    }
+
     // MARK: - Private Methods
     
     private func processObject(for url: URL) {
@@ -117,12 +133,12 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
         
         guard let url = task.originalRequest?.url else { return }
         
-        guard error == nil else {
+        guard error == nil else {           //Server Error, notify everyone.
             let load = fetchLoads.removeValue(forKey: url)
             load?.handlers.forEach({ handler in handler?(nil, error) })
             return
         }
         
-        processObject(for: url)
+        processObject(for: url)             //Download Finish, create object and notify.
     }
 }

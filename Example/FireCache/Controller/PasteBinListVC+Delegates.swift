@@ -55,9 +55,10 @@ extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDataSource
 
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         
-        let urls = indexPaths.compactMap { postsArray[$0.row].postImageURL }
-        urls.forEach {
-            FireImageManager.shared.fetch(with: $0)
+        let urls = indexPaths.compactMap { indexPath in postsArray[indexPath.row].postImageURL }
+        
+        urls.forEach { url in
+            FireImageManager.shared.fetch(with: url)
         }
     }
     

@@ -29,7 +29,7 @@ public class FireManager<T: Cacheable> {
     
     @discardableResult
     public func fetch(with url: URL,
-                      completionHandler: FetchHandler? = nil) -> URLSessionDataTask? {
+                      completionHandler: FetchHandler? = nil) -> FireDownloadTask<T>? {
         
         let key = url.absoluteString
         

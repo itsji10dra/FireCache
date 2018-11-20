@@ -37,7 +37,6 @@ extension Configuration {
         
         FireConfiguration.showLogs = false
         FireConfiguration.requestTimeoutSeconds = 15
-        FireConfiguration.resourceTimeoutSeconds = 15
         FireConfiguration.maximumSimultaneousDownloads = 20
         FireConfiguration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
     }
