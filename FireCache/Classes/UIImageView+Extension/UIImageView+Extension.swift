@@ -21,12 +21,13 @@ extension UIImageView {
     
     // MARK: - Public
     
-    public func setImage(with url: URL, placeholder: UIImage? = nil) {
+    @discardableResult
+    public func setImage(with url: URL, placeholder: UIImage? = nil) -> FireDownloadTask<UIImage>? {
         
         self.imageURL = url
         self.image = placeholder
         
-        FireImageManager.shared.fetch(with: url) { [weak self] (image, url, _) in
+        return FireImageManager.shared.fetch(with: url) { [weak self] (image, url, _) in
             DispatchQueue.main.async {
                 guard let strongSelf = self, url == strongSelf.imageURL else { return }
                 strongSelf.image = image

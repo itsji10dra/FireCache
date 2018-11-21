@@ -15,6 +15,8 @@ public struct FireDownloadTask<T: Cacheable> {
 
     public private(set) weak var downloader: FireDownloader<T>?
     
+    internal var handlerIndex: Int
+    
     // MARK: - Public Properties
 
     public var url: URL? {

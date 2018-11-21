@@ -49,21 +49,25 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
     public func downloadObject(with url: URL,
                                completionHandler: DownloadHandler? = nil) -> FireDownloadTask<T>? {
         
+        let loadObjectForURL = fetchLoads[url] ?? ObjectFetchLoad()
+        
+        let index = loadObjectForURL.handlers.count
+        
+        loadObjectForURL.handlers.append(completionHandler)
+
         func createNewDownloadTask(from url: URL) -> FireDownloadTask<T> {
             let request = URLRequest(url: url)
             let dataTask = session.dataTask(with: request)
-            let fireDownloadTask = FireDownloadTask<T>(dataTask: dataTask, downloader: self)
+            let fireDownloadTask = FireDownloadTask<T>(dataTask: dataTask, downloader: self, handlerIndex: index)
             dataTask.resume()
             return fireDownloadTask
         }
         
-        let loadObjectForURL = fetchLoads[url] ?? ObjectFetchLoad()
-        
-        loadObjectForURL.handlers.append(completionHandler)
-        
         if loadObjectForURL.downloadTask == nil {
             let downloadTask = createNewDownloadTask(from: url)
             loadObjectForURL.downloadTask = downloadTask
+        } else {
+            loadObjectForURL.downloadTask?.handlerIndex = index
         }
         
         loadObjectForURL.downloadTaskCount += 1
@@ -85,6 +89,10 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
             let fetchLoad = fetchLoads[url] else { return }
 
         fetchLoad.downloadTaskCount -= 1
+        
+        let handler = fetchLoad.handlers.remove(at: task.handlerIndex)
+        let error: NSError = NSError(domain: "Cancelled", code: NSURLErrorCancelled, userInfo: nil)
+        handler?(nil, error as Error)
         
         if fetchLoad.downloadTaskCount == 0 {
             task.dataTask.cancel()
