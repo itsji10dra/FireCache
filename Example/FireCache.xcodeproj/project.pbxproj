@@ -26,6 +26,15 @@
 		07CE146421A56D1F005FCC76 /* SourceCancellationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE146321A56D1F005FCC76 /* SourceCancellationVC.swift */; };
 		07CE146721A57DF8005FCC76 /* CacheExpiryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE146621A57DF8005FCC76 /* CacheExpiryVC.swift */; };
 		07CE146921A58089005FCC76 /* JSONCachingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE146821A58089005FCC76 /* JSONCachingVC.swift */; };
+		07CE147321A5C9E1005FCC76 /* Post.json in Resources */ = {isa = PBXBuildFile; fileRef = 07CE147221A5C9E1005FCC76 /* Post.json */; };
+		07CE147521A5CA5C005FCC76 /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = 07CE147421A5CA5C005FCC76 /* User.json */; };
+		07CE147921A5D124005FCC76 /* PostTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE147021A5C9B3005FCC76 /* PostTests.swift */; };
+		07CE147A21A5D33B005FCC76 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE147621A5CABE005FCC76 /* UserTests.swift */; };
+		07CE148221A5D379005FCC76 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE147C21A5D378005FCC76 /* NetworkManagerTests.swift */; };
+		07CE148321A5D379005FCC76 /* Success.json in Resources */ = {isa = PBXBuildFile; fileRef = 07CE147E21A5D378005FCC76 /* Success.json */; };
+		07CE148421A5D379005FCC76 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE147F21A5D378005FCC76 /* URLSessionMock.swift */; };
+		07CE148521A5D379005FCC76 /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE148021A5D378005FCC76 /* URLSessionDataTaskMock.swift */; };
+		07CE148621A5D379005FCC76 /* URLManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE148121A5D378005FCC76 /* URLManagerTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* PasteBinListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* PasteBinListVC.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -67,6 +76,15 @@
 		07CE146321A56D1F005FCC76 /* SourceCancellationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceCancellationVC.swift; sourceTree = "<group>"; };
 		07CE146621A57DF8005FCC76 /* CacheExpiryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheExpiryVC.swift; sourceTree = "<group>"; };
 		07CE146821A58089005FCC76 /* JSONCachingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCachingVC.swift; sourceTree = "<group>"; };
+		07CE147021A5C9B3005FCC76 /* PostTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTests.swift; sourceTree = "<group>"; };
+		07CE147221A5C9E1005FCC76 /* Post.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Post.json; sourceTree = "<group>"; };
+		07CE147421A5CA5C005FCC76 /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
+		07CE147621A5CABE005FCC76 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		07CE147C21A5D378005FCC76 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		07CE147E21A5D378005FCC76 /* Success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Success.json; sourceTree = "<group>"; };
+		07CE147F21A5D378005FCC76 /* URLSessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		07CE148021A5D378005FCC76 /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
+		07CE148121A5D378005FCC76 /* URLManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLManagerTests.swift; sourceTree = "<group>"; };
 		14F6A7B9A3D59134797D86CD /* Pods_FireCache_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		177451D7E70FEB0A942AA6E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		18AAC7B27B519ED40B7ECC3B /* Pods_FireCache_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +216,46 @@
 			path = Examples;
 			sourceTree = "<group>";
 		};
+		07CE146D21A5C979005FCC76 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				07CE147221A5C9E1005FCC76 /* Post.json */,
+				07CE147021A5C9B3005FCC76 /* PostTests.swift */,
+				07CE147421A5CA5C005FCC76 /* User.json */,
+				07CE147621A5CABE005FCC76 /* UserTests.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		07CE146F21A5C991005FCC76 /* Example App */ = {
+			isa = PBXGroup;
+			children = (
+				07CE146D21A5C979005FCC76 /* Models */,
+				07CE147B21A5D378005FCC76 /* Network */,
+			);
+			path = "Example App";
+			sourceTree = "<group>";
+		};
+		07CE147B21A5D378005FCC76 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				07CE147D21A5D378005FCC76 /* Mock */,
+				07CE147C21A5D378005FCC76 /* NetworkManagerTests.swift */,
+				07CE148121A5D378005FCC76 /* URLManagerTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		07CE147D21A5D378005FCC76 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				07CE147E21A5D378005FCC76 /* Success.json */,
+				07CE147F21A5D378005FCC76 /* URLSessionMock.swift */,
+				07CE148021A5D378005FCC76 /* URLSessionDataTaskMock.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
 		0821D4978D879AC2A6221730 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +318,7 @@
 		607FACE81AFB9204008FA782 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				07CE146F21A5C991005FCC76 /* Example App */,
 				607FACEB1AFB9204008FA782 /* Tests.swift */,
 				607FACE91AFB9204008FA782 /* Supporting Files */,
 			);
@@ -392,6 +451,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07CE147521A5CA5C005FCC76 /* User.json in Resources */,
+				07CE148321A5D379005FCC76 /* Success.json in Resources */,
+				07CE147321A5C9E1005FCC76 /* Post.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +559,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07CE148421A5D379005FCC76 /* URLSessionMock.swift in Sources */,
+				07CE148621A5D379005FCC76 /* URLManagerTests.swift in Sources */,
+				07CE148221A5D379005FCC76 /* NetworkManagerTests.swift in Sources */,
+				07CE147A21A5D33B005FCC76 /* UserTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
+				07CE147921A5D124005FCC76 /* PostTests.swift in Sources */,
+				07CE148521A5D379005FCC76 /* URLSessionDataTaskMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +643,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -622,6 +691,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -663,10 +733,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 01153414F993A818E3269FFC /* Pods-FireCache_Tests.debug.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -684,10 +752,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2BD32EFF4CA0EFCBEBAD6BEE /* Pods-FireCache_Tests.release.xcconfig */;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
