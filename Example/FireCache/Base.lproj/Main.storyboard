@@ -333,6 +333,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="vlQ-nl-len" kind="show" id="e5L-2q-ozQ"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="pu7-Xb-BCc" style="IBUITableViewCellStyleDefault" id="e7P-1B-RWo">
                                         <rect key="frame" x="0.0" y="130" width="414" height="65"/>
@@ -620,6 +623,75 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHP-US-LbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4783" y="753"/>
+        </scene>
+        <!--JSON Caching-->
+        <scene sceneID="73E-Tg-OdM">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5th-TV-P3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="vlQ-nl-len" customClass="JSONCachingVC" customModule="FireCache_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pb9-Xg-gXZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="TN6-0W-dso"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kfH-Ln-Jam">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5l-CP-WHw">
+                                <rect key="frame" x="148" y="108" width="118" height="30"/>
+                                <state key="normal" title="Load Array JSON"/>
+                                <connections>
+                                    <action selector="loadArrayJSONAction:" destination="vlQ-nl-len" eventType="touchUpInside" id="2H1-Oc-1o6"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wz8-pS-kDz">
+                                <rect key="frame" x="30" y="148" width="354" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="2YM-IU-94b"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESE-qh-803">
+                                <rect key="frame" x="131.5" y="368" width="151" height="30"/>
+                                <state key="normal" title="Load Dictionary JSON"/>
+                                <connections>
+                                    <action selector="loadDictionaryJSONAction:" destination="vlQ-nl-len" eventType="touchUpInside" id="AFf-1r-kJF"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="D1X-hc-089">
+                                <rect key="frame" x="30" y="408" width="354" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="MkJ-W4-prY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l5l-CP-WHw" firstAttribute="top" secondItem="Pb9-Xg-gXZ" secondAttribute="bottom" constant="20" id="BJo-O4-8Pw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wz8-pS-kDz" secondAttribute="trailing" constant="10" id="HyR-9X-AEN"/>
+                            <constraint firstItem="wz8-pS-kDz" firstAttribute="leading" secondItem="kfH-Ln-Jam" secondAttribute="leadingMargin" constant="10" id="ILp-ed-xkI"/>
+                            <constraint firstItem="D1X-hc-089" firstAttribute="leading" secondItem="kfH-Ln-Jam" secondAttribute="leadingMargin" constant="10" id="Ofr-uX-rt6"/>
+                            <constraint firstItem="l5l-CP-WHw" firstAttribute="centerX" secondItem="kfH-Ln-Jam" secondAttribute="centerX" id="UAW-py-Hfg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D1X-hc-089" secondAttribute="trailing" constant="10" id="Ygm-Kw-eVD"/>
+                            <constraint firstItem="wz8-pS-kDz" firstAttribute="top" secondItem="l5l-CP-WHw" secondAttribute="bottom" constant="10" id="a60-WR-yJS"/>
+                            <constraint firstItem="ESE-qh-803" firstAttribute="centerX" secondItem="kfH-Ln-Jam" secondAttribute="centerX" id="aaK-wC-Nsb"/>
+                            <constraint firstItem="D1X-hc-089" firstAttribute="top" secondItem="ESE-qh-803" secondAttribute="bottom" constant="10" id="hDO-g6-ImR"/>
+                            <constraint firstItem="ESE-qh-803" firstAttribute="top" secondItem="wz8-pS-kDz" secondAttribute="bottom" constant="20" id="sq3-2L-UVe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="JSON Caching" id="vHv-FS-70g"/>
+                    <connections>
+                        <outlet property="responseArrayTextView" destination="wz8-pS-kDz" id="IT3-TA-uBy"/>
+                        <outlet property="responseDictionaryTextView" destination="D1X-hc-089" id="51F-NW-onv"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="4783" y="1556"/>
         </scene>
     </scenes>
     <resources>

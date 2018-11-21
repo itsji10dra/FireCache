@@ -36,7 +36,6 @@ extension String: Cacheable {
     }
 }
 
-
 public enum JSON: Cacheable {
     
     public typealias Object = JSON
