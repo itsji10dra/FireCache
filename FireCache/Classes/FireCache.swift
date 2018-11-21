@@ -28,7 +28,7 @@ public class FireCache<T: Cacheable> {
     
     public var maximumSize: Int = FireConfiguration.defaultMaximumMemoryCost {
         didSet {
-            self.memoryCache.totalCostLimit = maximumSize
+            memoryCache.totalCostLimit = maximumSize
         }
     }
 

@@ -395,7 +395,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CJS-YI-0P4">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="example-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="CJS-YI-0P4">
                                                         <rect key="frame" x="0.0" y="28.5" width="414" height="171.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -420,7 +420,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VTW-YI-mRP">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="example-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="VTW-YI-mRP">
                                                         <rect key="frame" x="0.0" y="28.5" width="414" height="171.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -444,7 +444,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x2s-GV-ZCz">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="example-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="x2s-GV-ZCz">
                                                         <rect key="frame" x="0.0" y="28.5" width="414" height="171.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -468,7 +468,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rRh-EX-wdb">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="example-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="rRh-EX-wdb">
                                                         <rect key="frame" x="0.0" y="28.5" width="414" height="171.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -492,7 +492,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q9l-85-dOc">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="example-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="q9l-85-dOc">
                                                         <rect key="frame" x="0.0" y="28.5" width="414" height="171.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -623,6 +623,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="example-placeholder" width="787" height="512"/>
         <image name="fire-small" width="30" height="30"/>
     </resources>
 </document>

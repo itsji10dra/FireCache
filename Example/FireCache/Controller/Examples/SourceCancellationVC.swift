@@ -43,7 +43,7 @@ class SourceCancellationVC: UIViewController {
     
     // MARK: - Data
     
-    let url: URL? = URL(string: "https://images.unsplash.com/photo-1464550838636-1a3496df938b")
+    let url = URL(string: "https://vignette.wikia.nocookie.net/pokemon/images/4/49/Ash_Pikachu.png/revision/latest/scale-to-width-down/1280?cb=20170718053548")
     
     // MARK: - View
 
@@ -52,7 +52,7 @@ class SourceCancellationVC: UIViewController {
 
         guard let url = self.url else { return }
         
-        statusLabel1.text = "Starting loading"
+        statusLabel1.text = "Loading..."
         let _ = fireManager.fetch(with: url) { [weak self] (image, _, error) in
             DispatchQueue.main.async {
                 if let image = image {
@@ -64,7 +64,7 @@ class SourceCancellationVC: UIViewController {
             }
         }
         
-        statusLabel2.text = "Starting loading"
+        statusLabel2.text = "Loading..."
         let _ = fireManager.fetch(with: url) { [weak self] (image, _, error) in
             DispatchQueue.main.async {
                 if let image = image {
@@ -76,7 +76,7 @@ class SourceCancellationVC: UIViewController {
             }
         }
 
-        statusLabel3.text = "Starting loading"
+        statusLabel3.text = "Loading..."
         let task3 = fireManager.fetch(with: url) { [weak self] (image, _, error) in
             DispatchQueue.main.async {
                 if let image = image {
@@ -88,7 +88,7 @@ class SourceCancellationVC: UIViewController {
             }
         }
 
-        statusLabel4.text = "Starting loading"
+        statusLabel4.text = "Loading..."
         let _ = fireManager.fetch(with: url) { [weak self] (image, _, error) in
             DispatchQueue.main.async {
                 if let image = image {
@@ -100,7 +100,7 @@ class SourceCancellationVC: UIViewController {
             }
         }
 
-        statusLabel5.text = "Starting loading"
+        statusLabel5.text = "Loading..."
         let _ = fireManager.fetch(with: url) { [weak self] (image, _, error) in
             DispatchQueue.main.async {
                 if let image = image {
