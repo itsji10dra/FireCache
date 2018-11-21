@@ -42,8 +42,8 @@ class CacheExpiryVC: UIViewController {
         fireManager.cache.maximumSize = 100
         
         //Cache life
-        fireManager.cache.cacheLifeSpan = 20
-        fireManager.cache.expiryCheckTimeInterval = 60
+        fireManager.cache.cacheLifeSpan = 10
+        fireManager.cache.expiryCheckTimeInterval = 15
         
         guard let url = URL(string: url) else { return }
         

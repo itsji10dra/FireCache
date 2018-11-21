@@ -58,7 +58,8 @@ class PagingViewModel<T, E> where T:Decodable {
         guard dataTask?.state != .running else { return (true, nextPage) }
 
         //Add `if` statement and load, only if next page is available.
-        
+        //--
+            
         //Load next page
         loadData(page: UInt(nextPage), completionHandler: handler)
         
@@ -76,7 +77,7 @@ class PagingViewModel<T, E> where T:Decodable {
         
         print("Loading Page:", number, " ↔️ Endpoint:", endPoint.rawValue)
         
-        //Passing page as `nil` for `pastebin.com` -- This will load same page again n again.
+        #warning("Passing `page` as `nil` for `pastebin.com` -- This will load same page again n again.")
         guard let url = URLManager.getURLForEndpoint(endpoint: endPoint, page: nil) else { return }
         
         dataTask = networkManager.dataTaskFromURL(url,

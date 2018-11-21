@@ -35,6 +35,7 @@
 		07CE148421A5D379005FCC76 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE147F21A5D378005FCC76 /* URLSessionMock.swift */; };
 		07CE148521A5D379005FCC76 /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE148021A5D378005FCC76 /* URLSessionDataTaskMock.swift */; };
 		07CE148621A5D379005FCC76 /* URLManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE148121A5D378005FCC76 /* URLManagerTests.swift */; };
+		07CE148921A5D648005FCC76 /* PagingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE148821A5D648005FCC76 /* PagingViewModelTests.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* PasteBinListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* PasteBinListVC.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 		07CE147F21A5D378005FCC76 /* URLSessionMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 		07CE148021A5D378005FCC76 /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
 		07CE148121A5D378005FCC76 /* URLManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLManagerTests.swift; sourceTree = "<group>"; };
+		07CE148821A5D648005FCC76 /* PagingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewModelTests.swift; sourceTree = "<group>"; };
 		14F6A7B9A3D59134797D86CD /* Pods_FireCache_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		177451D7E70FEB0A942AA6E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		18AAC7B27B519ED40B7ECC3B /* Pods_FireCache_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 			children = (
 				07CE146D21A5C979005FCC76 /* Models */,
 				07CE147B21A5D378005FCC76 /* Network */,
+				07CE148721A5D5A9005FCC76 /* ViewModel */,
 			);
 			path = "Example App";
 			sourceTree = "<group>";
@@ -254,6 +257,14 @@
 				07CE148021A5D378005FCC76 /* URLSessionDataTaskMock.swift */,
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		07CE148721A5D5A9005FCC76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				07CE148821A5D648005FCC76 /* PagingViewModelTests.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0821D4978D879AC2A6221730 /* Frameworks */ = {
@@ -407,10 +418,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = NLP39UWW3M;
 						LastSwiftMigration = 1010;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = NLP39UWW3M;
 						LastSwiftMigration = 1010;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -561,6 +574,7 @@
 			files = (
 				07CE148421A5D379005FCC76 /* URLSessionMock.swift in Sources */,
 				07CE148621A5D379005FCC76 /* URLManagerTests.swift in Sources */,
+				07CE148921A5D648005FCC76 /* PagingViewModelTests.swift in Sources */,
 				07CE148221A5D379005FCC76 /* NetworkManagerTests.swift in Sources */,
 				07CE147A21A5D33B005FCC76 /* UserTests.swift in Sources */,
 				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
@@ -701,6 +715,7 @@
 			baseConfigurationReference = 480F42655AF94142C592B4BA /* Pods-FireCache_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NLP39UWW3M;
 				INFOPLIST_FILE = FireCache/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -718,6 +733,7 @@
 			baseConfigurationReference = FAB8FFB9753F164F574843F7 /* Pods-FireCache_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NLP39UWW3M;
 				INFOPLIST_FILE = FireCache/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -734,6 +750,7 @@
 			baseConfigurationReference = 01153414F993A818E3269FFC /* Pods-FireCache_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = NLP39UWW3M;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -753,6 +770,7 @@
 			baseConfigurationReference = 2BD32EFF4CA0EFCBEBAD6BEE /* Pods-FireCache_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = NLP39UWW3M;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

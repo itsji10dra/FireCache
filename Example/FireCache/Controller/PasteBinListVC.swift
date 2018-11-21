@@ -52,7 +52,7 @@ class PasteBinListVC: UIViewController {
         pagingModel = PagingViewModel<Post, ListDisplayModel>(endPoint: .posts,
                                                               transform: { result -> [ListDisplayModel] in
             return result.map { ListDisplayModel(name: $0.user.name,
-                                                 userIconURL: $0.user.profileImage.small,
+                                                 userIconURL: $0.user.profileImage.large,
                                                  postImageURL: $0.images.regular,
                                                  totalLikes: "\($0.likes) likes",
                                                  isLikedByUser: $0.likedByUser,
