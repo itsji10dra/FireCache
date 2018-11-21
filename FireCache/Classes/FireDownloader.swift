@@ -95,7 +95,7 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
         fetchLoad.downloadTaskCount -= 1
         
         let handler = fetchLoad.handlers.remove(at: task.handlerIndex)
-        let error: NSError = NSError(domain: "Cancelled", code: NSURLErrorCancelled, userInfo: nil)
+        let error = NSError(domain: "Cancelled", code: NSURLErrorCancelled, userInfo: nil)
         handler?(nil, error as Error)
         
         if fetchLoad.downloadTaskCount == 0 {
