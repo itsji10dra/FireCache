@@ -22,12 +22,12 @@ struct User: Decodable {
     
     let name: String
     
-    let profileImages: ProfileImage
+    let profileImage: ProfileImage
     
     enum CodingKeys: String, CodingKey {
         case id
         case username
         case name
-        case profileImages = "profile_image"
+        case profileImage = "profile_image"
     }
 }
