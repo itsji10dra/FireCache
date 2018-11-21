@@ -13,7 +13,7 @@ public protocol Cacheable {
     
     associatedtype Object
     
-    static func convertFromData(_ data: Data) -> Object?
+    static func convertFromData(_ data: Data) throws -> Object?
 }
 
 // MARK: - Cacheable + Extension
@@ -43,25 +43,21 @@ public enum JSON: Cacheable {
     case dictionary([String:AnyObject])
     case array([AnyObject])
     
-    public static func convertFromData(_ data: Data) -> JSON? {
-        do {
-            let object = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
-            switch (object) {
-            case let dictionary as [String:AnyObject]:
-                return JSON.dictionary(dictionary)
-            case let array as [AnyObject]:
-                return JSON.array(array)
-            default:
-                return nil
-            }
-        } catch {
-            FireLog.error(message: "Invalid JSON data", error: error)
+    public static func convertFromData(_ data: Data) throws -> JSON? {
+
+        let object = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
+        switch object {
+        case let dictionary as [String:AnyObject]:
+            return JSON.dictionary(dictionary)
+        case let array as [AnyObject]:
+            return JSON.array(array)
+        default:
             return nil
         }
     }
     
     public var array: [AnyObject]? {
-        switch (self) {
+        switch self {
         case .dictionary(_):
             return nil
         case .array(let array):
@@ -70,7 +66,7 @@ public enum JSON: Cacheable {
     }
     
     public var dictionary: [String:AnyObject]? {
-        switch (self) {
+        switch self {
         case .dictionary(let dictionary):
             return dictionary
         case .array(_):

@@ -118,14 +118,20 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
         for handler in fetchLoad.handlers {
             
             var object: T? = objectCache[key]
+            var error: Error? = nil
             
-            if object == nil,
-                let newObject = T.convertFromData(data as Data) as? T {
-                objectCache[key] = newObject
-                object = newObject
+            if object == nil || error == nil {
+                do {
+                    if let newObject = try T.convertFromData(data as Data) as? T {
+                        objectCache[key] = newObject
+                        object = newObject
+                    }
+                } catch let parsingError {
+                    error = parsingError
+                }
             }
             
-            handler?(object, nil)
+            handler?(object, error)
         }
         
         fetchLoads.removeValue(forKey: url)
