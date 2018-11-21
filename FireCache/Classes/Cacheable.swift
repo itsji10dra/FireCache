@@ -27,6 +27,16 @@ extension UIImage: Cacheable {
     }
 }
 
+extension String: Cacheable {
+    
+    public typealias Object = String
+    
+    public static func convertFromData(_ data: Data) -> String? {
+        return String(data: data, encoding: .utf8)
+    }
+}
+
+
 public enum JSON: Cacheable {
     
     public typealias Object = JSON

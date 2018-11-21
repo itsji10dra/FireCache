@@ -10,7 +10,7 @@ import UIKit
 import FireCache
 
 ///
-/// This class demonstrate point 5 from 'Challenge.pdf'
+/// This class demonstrate point 5 from Challenge.pdf's requirement section.
 ///
 /// The same image may be requested by multiple sources simultaneously (even before it has loaded),
 /// And if one of the sources cancels the load, it should not affect the remaining requests;
@@ -53,7 +53,7 @@ class SourceCancellationVC: UIViewController {
         guard let url = self.url else { return }
         
         statusLabel1.text = "Starting loading"
-        let _ = fireManager.fetch(with: url) { [weak self] (image, url, error) in
+        let _ = fireManager.fetch(with: url) { [weak self] (image, _, error) in
             DispatchQueue.main.async {
                 if let image = image {
                         self?.imageView1.image = image
@@ -65,7 +65,7 @@ class SourceCancellationVC: UIViewController {
         }
         
         statusLabel2.text = "Starting loading"
-        let _ = fireManager.fetch(with: url) { [weak self] (image, url, error) in
+        let _ = fireManager.fetch(with: url) { [weak self] (image, _, error) in
             DispatchQueue.main.async {
                 if let image = image {
                     self?.imageView2.image = image
@@ -77,7 +77,7 @@ class SourceCancellationVC: UIViewController {
         }
 
         statusLabel3.text = "Starting loading"
-        let task3 = fireManager.fetch(with: url) { [weak self] (image, url, error) in
+        let task3 = fireManager.fetch(with: url) { [weak self] (image, _, error) in
             DispatchQueue.main.async {
                 if let image = image {
                     self?.imageView3.image = image
@@ -89,7 +89,7 @@ class SourceCancellationVC: UIViewController {
         }
 
         statusLabel4.text = "Starting loading"
-        let _ = fireManager.fetch(with: url) { [weak self] (image, url, error) in
+        let _ = fireManager.fetch(with: url) { [weak self] (image, _, error) in
             DispatchQueue.main.async {
                 if let image = image {
                     self?.imageView4.image = image
@@ -101,7 +101,7 @@ class SourceCancellationVC: UIViewController {
         }
 
         statusLabel5.text = "Starting loading"
-        let _ = fireManager.fetch(with: url) { [weak self] (image, url, error) in
+        let _ = fireManager.fetch(with: url) { [weak self] (image, _, error) in
             DispatchQueue.main.async {
                 if let image = image {
                     self?.imageView5.image = image
@@ -111,8 +111,8 @@ class SourceCancellationVC: UIViewController {
                 }
             }
         }
-        
-        //Cancelling one of the task, won't be affecting rest of the downloads.
+
+        //Cancelling task.
         task3?.cancel()
     }
 }

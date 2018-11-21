@@ -20,5 +20,5 @@ public class FireConfiguration {
     public static var requestCachePolicy: URLRequest.CachePolicy = .useProtocolCachePolicy
     
     //Memory
-    public static var maximumMemoryCost: Int = 0
+    public static var defaultMaximumMemoryCost: Int = 0
 }

@@ -10,6 +10,8 @@ import Foundation
 
 public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
     
+    // MARK: - Alias
+    
     public typealias DownloadHandler = ((_ object: T?, _ error: Error?) -> Void)
     
     // MARK: - Data

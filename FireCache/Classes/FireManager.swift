@@ -10,13 +10,15 @@ import Foundation
 
 public class FireManager<T: Cacheable> {
     
+    // MARK: - Alias
+
     public typealias FetchHandler = ((_ object: T?, _ url: URL, _ error: Error?) -> Void)
 
     // MARK: - Data
     
-    public var cache: FireCache<T>
+    public let cache: FireCache<T>
     
-    public var downloader: FireDownloader<T>
+    public let downloader: FireDownloader<T>
     
     // MARK: - Initializer
     

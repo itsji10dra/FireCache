@@ -9,12 +9,16 @@ import Foundation
 
 public struct FireLog {
     
+    // MARK: - Data
+    
     private static let Tag = "[FireCache]"
     
     enum Level: String {
         case debug = "[Debug]"
         case error = "[Error]"
     }
+    
+    // MARK: - Private Static Methods
     
     private static func log(_ level: Level, _ message: @autoclosure () -> String, _ error: Error? = nil) {
         if let error = error {
@@ -25,7 +29,9 @@ public struct FireLog {
         print("--------------------------------------------------------------------------------------")
     }
     
-    static func debug(message: @autoclosure () -> String, error: Error? = nil) {
+    // MARK: - Internal Static Methods
+    
+    internal static func debug(message: @autoclosure () -> String, error: Error? = nil) {
         #if DEBUG
             if FireConfiguration.showLogs {
                 log(.debug, message, error)
@@ -33,7 +39,7 @@ public struct FireLog {
         #endif
     }
     
-    static func error(message: @autoclosure () -> String, error: Error? = nil) {
+    internal static func error(message: @autoclosure () -> String, error: Error? = nil) {
         log(.error, message, error)
     }
 }

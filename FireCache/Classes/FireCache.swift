@@ -18,9 +18,19 @@ public class FireCache<T: Cacheable> {
 
     private var expiryCheckTimer: Timer!
 
-    public var expiryCheckTimeInterval: TimeInterval = 30
-
     public var cacheLifeSpan: TimeInterval = 60
+
+    public var expiryCheckTimeInterval: TimeInterval = 30 {
+        didSet {
+            resetTimer()
+        }
+    }
+    
+    public var maximumSize: Int = FireConfiguration.defaultMaximumMemoryCost {
+        didSet {
+            self.memoryCache.totalCostLimit = maximumSize
+        }
+    }
 
     // MARK: - Initializer
     
@@ -29,18 +39,14 @@ public class FireCache<T: Cacheable> {
         let bundleId =  Bundle.main.bundleIdentifier ?? ""
         let cacheName = bundleId + ".\(T.self)"
         memoryCache.name = cacheName
-        memoryCache.totalCostLimit = FireConfiguration.maximumMemoryCost
+        memoryCache.totalCostLimit = maximumSize
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(clearMemoryCache),
                                                name: UIApplication.didReceiveMemoryWarningNotification,
                                                object: nil)
-
-        expiryCheckTimer = Timer.scheduledTimer(withTimeInterval: expiryCheckTimeInterval,
-                                                repeats: true,
-                                                block: { [weak self] _ in
-                                                    self?.clearExpiredCache()
-        })
+        
+        initiateTimer()
     }
     
     // MARK: - DeInitializer
@@ -48,6 +54,21 @@ public class FireCache<T: Cacheable> {
     deinit {
         expiryCheckTimer.invalidate()
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - Private Methods
+
+    private func initiateTimer() {
+        expiryCheckTimer = Timer.scheduledTimer(withTimeInterval: expiryCheckTimeInterval,
+                                                repeats: true,
+                                                block: { [weak self] _ in
+                                                    self?.clearExpiredCache()
+        })
+    }
+    
+    private func resetTimer() {
+        expiryCheckTimer.invalidate()
+        initiateTimer()
     }
     
     // MARK: - Public Methods
@@ -63,12 +84,18 @@ public class FireCache<T: Cacheable> {
     public func remove(forKey key: String,
                        completionHandler: (() -> Void)? = nil) {
         memoryCache.removeObject(forKey: key as NSString)
+        lastAccessed.removeValue(forKey: key)
         completionHandler?()
     }
     
     public func retrieve(forKey key: String) -> T? {
+        guard let object = memoryCache.object(forKey: key as NSString) as? T else { return nil }
         lastAccessed[key] = Date()
-        return memoryCache.object(forKey: key as NSString) as? T
+        return object
+    }
+    
+    public func contains(forKey key: String) -> Bool {
+        return memoryCache.object(forKey: key as NSString) != nil
     }
     
     public func clearExpiredCache() {
