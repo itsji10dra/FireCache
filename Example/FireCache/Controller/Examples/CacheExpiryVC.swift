@@ -12,7 +12,7 @@ import FireCache
 ///
 /// This class demonstrate point 3 from Challenge.pdf's requirement section.
 ///
-/// The cache should have a configurable max capacity and should evict images not recently used;
+/// • The cache should have a configurable max capacity and should evict images not recently used;
 ///
 
 class CacheExpiryVC: UIViewController {

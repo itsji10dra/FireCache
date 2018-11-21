@@ -58,7 +58,9 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
         loadObjectForURL.handlers.append(completionHandler)
 
         func createNewDownloadTask(from url: URL) -> FireDownloadTask<T> {
-            let request = URLRequest(url: url)
+            let request = URLRequest(url: url,
+                                     cachePolicy: FireConfiguration.requestCachePolicy,
+                                     timeoutInterval: FireConfiguration.requestTimeoutSeconds)
             let dataTask = session.dataTask(with: request)
             let fireDownloadTask = FireDownloadTask<T>(dataTask: dataTask, downloader: self, handlerIndex: index)
             dataTask.resume()

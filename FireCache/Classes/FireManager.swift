@@ -27,6 +27,10 @@ public class FireManager<T: Cacheable> {
         self.cache = FireCache<T>()
     }
     
+    deinit {
+        invalidate()
+    }
+    
     // MARK: - Public Methods
     
     @discardableResult

@@ -32,7 +32,7 @@
         <scene sceneID="o24-zN-2ue">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OcK-Up-rVu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Task" id="FaY-7c-zup"/>
+                    <tabBarItem key="tabBarItem" title="Task" image="fire-tab" id="FaY-7c-zup"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FRx-j7-tib">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -273,7 +273,7 @@
         <scene sceneID="0qh-xH-9rn">
             <objects>
                 <navigationController id="fWR-oQ-uPU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Examples" id="oOP-j0-Xoh"/>
+                    <tabBarItem key="tabBarItem" title="Examples" image="code-tab" id="oOP-j0-Xoh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Nfk-ro-RcI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -628,7 +628,6 @@
         <!--JSON Caching-->
         <scene sceneID="73E-Tg-OdM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5th-TV-P3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="vlQ-nl-len" customClass="JSONCachingVC" customModule="FireCache_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Pb9-Xg-gXZ"/>
@@ -709,12 +708,15 @@
                         <outlet property="responseDictionaryTextView" destination="D1X-hc-089" id="51F-NW-onv"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5th-TV-P3d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4783" y="1556"/>
         </scene>
     </scenes>
     <resources>
+        <image name="code-tab" width="72" height="72"/>
         <image name="example-placeholder" width="787" height="512"/>
         <image name="fire-small" width="30" height="30"/>
+        <image name="fire-tab" width="72" height="72"/>
     </resources>
 </document>

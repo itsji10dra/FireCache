@@ -10,9 +10,13 @@ import UIKit
 import FireCache
 
 ///
-/// This class demonstrate point 2 from Challenge.pdf's requirement section.
+/// This class demonstrate point 4 & 5 from Challenge.pdf's requirement section.
 ///
-/// JSON caching
+/// • An image load may be cancelled;
+/// • The same image may be requested by multiple sources simultaneously (even before it has loaded),
+///   And if one of the sources cancels the load, it should not affect the remaining requests;
+///
+/// Here we are make 5 request for same URL, and cancelling task number 3, won't affect rest 4 tasks.
 ///
 
 class SourceCancellationVC: UIViewController {
