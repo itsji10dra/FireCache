@@ -68,10 +68,22 @@ extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDataSource
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let isIPad = UIDevice.current.userInterfaceIdiom == .pad
-        
-        let numberOfColumns: CGFloat = isIPad ? 2 : 1
-        
-        return CGSize(width: collectionView.frame.width/numberOfColumns, height: cellHeight)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .carPlay, .tv, .unspecified:
+            fallthrough
+        case .phone:
+            return CGSize(width: collectionView.frame.width, height: cellHeight)
+        case .pad:
+            
+            let screenWidth = UIScreen.main.bounds.width
+            
+            let collectionViewWidth = collectionView.bounds.width
+
+            let isMoreThanHalfOfScreen = collectionViewWidth > (screenWidth/2)
+            
+            let numberOfColumns: CGFloat = isMoreThanHalfOfScreen ? 2 : 1
+
+            return CGSize(width: collectionView.frame.width/numberOfColumns, height: cellHeight)
+        }
     }
 }

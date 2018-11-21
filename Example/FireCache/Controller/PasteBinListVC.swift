@@ -73,7 +73,7 @@ class PasteBinListVC: UIViewController {
         super.viewWillTransition(to: size, with: coordinator)
         postCollectionView.collectionViewLayout.invalidateLayout()
     }
-
+    
     // MARK: - Methods
 
     internal func loadPosts() {
