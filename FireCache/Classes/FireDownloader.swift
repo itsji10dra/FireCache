@@ -39,7 +39,7 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
     
     // MARK: - Initializer
     
-    override init() {
+    override public init() {
         super.init()
         
         let configuration = URLSessionConfiguration.default

@@ -13,7 +13,7 @@ public protocol Cacheable {
     
     associatedtype Object
     
-    static func convertFromData(_ data: Data) throws -> Object?
+    static func convertFromData(_ data: Data) throws -> Object
 }
 
 // MARK: - Cacheable + Extension
@@ -22,8 +22,9 @@ extension UIImage: Cacheable {
     
     public typealias Object = UIImage
     
-    public static func convertFromData(_ data: Data) -> UIImage? {
-        return UIImage(data: data)
+    public static func convertFromData(_ data: Data) throws -> UIImage {
+        guard let image = UIImage(data: data) else { throw FireError.invalidResponse }
+        return image
     }
 }
 
@@ -31,8 +32,9 @@ extension String: Cacheable {
     
     public typealias Object = String
     
-    public static func convertFromData(_ data: Data) -> String? {
-        return String(data: data, encoding: .utf8)
+    public static func convertFromData(_ data: Data) throws -> String {
+        guard let string = String(data: data, encoding: .utf8) else { throw FireError.invalidResponse  }
+        return string
     }
 }
 
@@ -43,7 +45,7 @@ public enum JSON: Cacheable {
     case dictionary([String:AnyObject])
     case array([AnyObject])
     
-    public static func convertFromData(_ data: Data) throws -> JSON? {
+    public static func convertFromData(_ data: Data) throws -> JSON {
 
         let object = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
         switch object {
@@ -52,7 +54,7 @@ public enum JSON: Cacheable {
         case let array as [AnyObject]:
             return JSON.array(array)
         default:
-            return nil
+            throw FireError.invalidResponse
         }
     }
     

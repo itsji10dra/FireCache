@@ -14,11 +14,13 @@ class FireCacheTests: XCTestCase {
     var cache: FireCache<UIImage>!
     
     override func setUp() {
+        super.setUp()
         cache = .init()
     }
 
     override func tearDown() {
         cache.clearMemoryCache()
+        super.tearDown()
     }
 
     func testMaxMemorySize() {
@@ -41,7 +43,7 @@ class FireCacheTests: XCTestCase {
         let expectation = self.expectation(description: "Waiting for retrieving image")
 
         let testBundle = Bundle(for: type(of: self))
-        let bundleImageKey = "HelperDataImageKey1"
+        let bundleImageKey = "ImageKey1"
         let image = UIImage(named: "test-sample-1", in: testBundle, compatibleWith: nil)!
         
         cache.storeObject(image, forKey: bundleImageKey) {
@@ -59,8 +61,8 @@ class FireCacheTests: XCTestCase {
         let expectation = self.expectation(description: "Waiting for retrieving image")
         
         let testBundle = Bundle(for: type(of: self))
-        let bundleImageKey = "HelperDataImageKey2"
-        let image = UIImage(named: "test-sample-1", in: testBundle, compatibleWith: nil)!
+        let bundleImageKey = "ImageKey2"
+        let image = UIImage(named: "test-sample-2", in: testBundle, compatibleWith: nil)!
         
         cache.storeObject(image, forKey: bundleImageKey)
         cache.removeObject(forKey: bundleImageKey) {
@@ -76,8 +78,8 @@ class FireCacheTests: XCTestCase {
     func testContainsObject() {
 
         let testBundle = Bundle(for: type(of: self))
-        let bundleImageKey = "HelperDataImageKey3"
-        let image = UIImage(named: "test-sample-1", in: testBundle, compatibleWith: nil)!
+        let bundleImageKey = "ImageKey3"
+        let image = UIImage(named: "test-sample-3", in: testBundle, compatibleWith: nil)!
 
         cache.storeObject(image, forKey: bundleImageKey)
         XCTAssertTrue(cache.containsObject(forKey: bundleImageKey))

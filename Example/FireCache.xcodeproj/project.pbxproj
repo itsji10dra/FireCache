@@ -40,6 +40,9 @@
 		07CE14DB21A70F34005FCC76 /* FireCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE14DA21A70F34005FCC76 /* FireCacheTests.swift */; };
 		07CE14DD21A7121A005FCC76 /* test-sample-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE14DC21A7121A005FCC76 /* test-sample-1.png */; };
 		07CE14E021A7124C005FCC76 /* TestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE14DF21A7124C005FCC76 /* TestHelper.swift */; };
+		07CE14E221A71BEC005FCC76 /* FireDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE14E121A71BEC005FCC76 /* FireDownloaderTests.swift */; };
+		07CE14E421A723D3005FCC76 /* test-sample-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE14E321A723D3005FCC76 /* test-sample-2.png */; };
+		07CE14E821A7250B005FCC76 /* test-sample-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE14E721A7250B005FCC76 /* test-sample-3.png */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* PasteBinListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* PasteBinListVC.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -94,6 +97,9 @@
 		07CE14DA21A70F34005FCC76 /* FireCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireCacheTests.swift; sourceTree = "<group>"; };
 		07CE14DC21A7121A005FCC76 /* test-sample-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test-sample-1.png"; sourceTree = "<group>"; };
 		07CE14DF21A7124C005FCC76 /* TestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelper.swift; sourceTree = "<group>"; };
+		07CE14E121A71BEC005FCC76 /* FireDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireDownloaderTests.swift; sourceTree = "<group>"; };
+		07CE14E321A723D3005FCC76 /* test-sample-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test-sample-2.png"; sourceTree = "<group>"; };
+		07CE14E721A7250B005FCC76 /* test-sample-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test-sample-3.png"; sourceTree = "<group>"; };
 		14F6A7B9A3D59134797D86CD /* Pods_FireCache_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		177451D7E70FEB0A942AA6E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		18AAC7B27B519ED40B7ECC3B /* Pods_FireCache_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +294,7 @@
 				07CE14DE21A7121D005FCC76 /* Images */,
 				07CE14DF21A7124C005FCC76 /* TestHelper.swift */,
 				07CE14DA21A70F34005FCC76 /* FireCacheTests.swift */,
+				07CE14E121A71BEC005FCC76 /* FireDownloaderTests.swift */,
 			);
 			path = FireCache;
 			sourceTree = "<group>";
@@ -295,6 +302,8 @@
 		07CE14DE21A7121D005FCC76 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				07CE14E721A7250B005FCC76 /* test-sample-3.png */,
+				07CE14E321A723D3005FCC76 /* test-sample-2.png */,
 				07CE14DC21A7121A005FCC76 /* test-sample-1.png */,
 			);
 			path = Images;
@@ -498,8 +507,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07CE14E421A723D3005FCC76 /* test-sample-2.png in Resources */,
 				07CE147521A5CA5C005FCC76 /* User.json in Resources */,
 				07CE14DD21A7121A005FCC76 /* test-sample-1.png in Resources */,
+				07CE14E821A7250B005FCC76 /* test-sample-3.png in Resources */,
 				07CE148321A5D379005FCC76 /* Success.json in Resources */,
 				07CE147321A5C9E1005FCC76 /* Post.json in Resources */,
 			);
@@ -635,6 +646,7 @@
 				07CE14E021A7124C005FCC76 /* TestHelper.swift in Sources */,
 				07CE148421A5D379005FCC76 /* URLSessionMock.swift in Sources */,
 				07CE148621A5D379005FCC76 /* URLManagerTests.swift in Sources */,
+				07CE14E221A71BEC005FCC76 /* FireDownloaderTests.swift in Sources */,
 				07CE14DB21A70F34005FCC76 /* FireCacheTests.swift in Sources */,
 				07CE148921A5D648005FCC76 /* PagingViewModelTests.swift in Sources */,
 				07CE148221A5D379005FCC76 /* NetworkManagerTests.swift in Sources */,
