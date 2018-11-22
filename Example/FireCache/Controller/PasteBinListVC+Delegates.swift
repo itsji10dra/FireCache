@@ -37,7 +37,7 @@ extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDataSource
         
         cell?.nameLabel?.text = infoObj.name
         cell?.userIconImageView.setImage(with: infoObj.userIconURL, placeholder: #imageLiteral(resourceName: "fire-placeholder"))
-        cell?.postImageView.setImage(with: infoObj.postImageURL, placeholder: #imageLiteral(resourceName: "fire-placeholder"))
+        cell?.postImageView.setImage(with: infoObj.postImageURL, placeholder: #imageLiteral(resourceName: "big-placeholder"))
         cell?.likesCountLabel?.text = infoObj.totalLikes
         cell?.likeButton.isSelected = infoObj.isLikedByUser
         cell?.postImageView.backgroundColor = infoObj.color
