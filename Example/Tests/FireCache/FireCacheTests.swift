@@ -50,10 +50,13 @@ class FireCacheTests: XCTestCase {
             let cachedImage = self.cache.retrieveObject(forKey: bundleImageKey)
             XCTAssertNotNil(cachedImage)
             expectation.fulfill()
-            return
         }
         
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("Wait for retrieving image - Expectations Timeout errored: \(error)")
+            }
+        }
     }
     
     func testRemoveObject() {
@@ -69,10 +72,13 @@ class FireCacheTests: XCTestCase {
             let cachedImage = self.cache.retrieveObject(forKey: bundleImageKey)
             XCTAssertNil(cachedImage)
             expectation.fulfill()
-            return
         }
         
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("Wait for retrieving image - Expectations Timeout errored: \(error)")
+            }
+        }
     }
 
     func testContainsObject() {
@@ -98,6 +104,10 @@ class FireCacheTests: XCTestCase {
             expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 3, handler: nil)
+        waitForExpectations(timeout: 3) { error in
+            if let error = error {
+                XCTFail("Wait for retrieving image - Expectations Timeout errored: \(error)")
+            }
+        }
     }
 }

@@ -39,45 +39,56 @@ class FireDownloaderTests: XCTestCase {
     }
 
     func testDownloadAnImage() {
-        let expectation = self.expectation(description: "wait for downloading image")
+        let expectation = self.expectation(description: "Wait for downloading image")
         
         let url = URL(string: "https://avatars0.githubusercontent.com/u/13048696?s=460&v=4")!
         
         _ = downloader.downloadObject(with: url) { (image, error) in
-            expectation.fulfill()
             XCTAssertNotNil(image)
             XCTAssertNil(error)
+            expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 10) { error in
+            if let error = error {
+                XCTFail("Wait for downloading image - Expectations Timeout errored: \(error)")
+            }
+        }
     }
     
     func testDownloadAnImageWithError() {
-        let expectation = self.expectation(description: "wait for throwing error")
+        let expectation = self.expectation(description: "Wait for throwing error")
         
         let url = URL(string: "https://abc.com")!
         
         _ = downloader.downloadObject(with: url) { (image, error) in
-            expectation.fulfill()
             XCTAssertNotNil(error)
             XCTAssertNil(image)
+            expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("Wait for throwing error string - Expectations Timeout errored: \(error)")
+            }
+        }
     }
 
-    func testDownloadAString() {
-        let expectation = self.expectation(description: "wait for downloading string")
+    func testDownloadString() {
+        let expectation = self.expectation(description: "Wait for downloading string")
         
         let url = URL(string: "https://pastebin.com/raw/B75vJCLX")!
         
         _ = downloader.downloadObject(with: url) { (image, error) in
-            expectation.fulfill()
             XCTAssertNotNil(error)
             XCTAssertNil(image)
+            expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5) { error in
+            if let error = error {
+                XCTFail("Wait for downloading string - Expectations Timeout errored: \(error)")
+            }
+        }
     }
-
 }
