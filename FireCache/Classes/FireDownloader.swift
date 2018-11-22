@@ -31,7 +31,11 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
     
     public var requestTimeout: TimeInterval = FireConfiguration.requestTimeoutSeconds
 
-    public var maxSimultaneousDownloads: Int = FireConfiguration.maximumSimultaneousDownloads
+    public var httpMaximumConnectionsPerHost: Int = FireConfiguration.httpMaximumConnectionsPerHost {
+        didSet {
+            session.configuration.httpMaximumConnectionsPerHost = httpMaximumConnectionsPerHost
+        }
+    }
     
     // MARK: - Initializer
     
@@ -40,7 +44,7 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
         
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = requestTimeout
-        configuration.httpMaximumConnectionsPerHost = maxSimultaneousDownloads
+        configuration.httpMaximumConnectionsPerHost = httpMaximumConnectionsPerHost
         configuration.requestCachePolicy = cachePolicy
 
         self.session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)

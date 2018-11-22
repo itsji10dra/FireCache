@@ -15,7 +15,7 @@ public class FireConfiguration {
     //Network
     public static var requestTimeoutSeconds: TimeInterval = 20.0
     
-    public static var maximumSimultaneousDownloads: Int = 20
+    public static var httpMaximumConnectionsPerHost: Int = 20
     
     public static var requestCachePolicy: URLRequest.CachePolicy = .useProtocolCachePolicy
     

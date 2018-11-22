@@ -36,7 +36,7 @@ extension Configuration {
     static func loadFireConfiguration() {
         FireConfiguration.showLogs = false
         FireConfiguration.requestTimeoutSeconds = 15
-        FireConfiguration.maximumSimultaneousDownloads = 20
+        FireConfiguration.httpMaximumConnectionsPerHost = 20
         FireConfiguration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
     }
 }
