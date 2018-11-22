@@ -130,7 +130,7 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
             var object: T? = objectCache[key]
             var error: Error? = nil
             
-            if object == nil || error == nil {
+            if object == nil && error == nil {
                 do {
                     if let newObject = try T.convertFromData(data as Data) as? T {
                         objectCache[key] = newObject
