@@ -1,16 +1,27 @@
 PODS:
   - FireCache (0.1.0)
+  - Nimble (7.3.1)
+  - Quick (1.3.2)
 
 DEPENDENCIES:
   - FireCache (from `../`)
+  - Nimble
+  - Quick
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - Quick
 
 EXTERNAL SOURCES:
   FireCache:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FireCache: 1eeb50d03e03f54ee047e121fb154cec538be8fb
+  FireCache: b71d7321a06c7e7053d9ca70e5667bf9c3d713d9
+  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
+  Quick: 2623cb30d7a7f41ca62f684f679586558f483d46
 
-PODFILE CHECKSUM: e4e4b06552d1a47aab064df304ae2e19132eb73c
+PODFILE CHECKSUM: 499ae33de2cd4fcc29c8b16a2c58a9f6f239235f
 
 COCOAPODS: 1.5.3

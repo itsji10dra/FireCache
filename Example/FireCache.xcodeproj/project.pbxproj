@@ -36,6 +36,7 @@
 		07CE148521A5D379005FCC76 /* URLSessionDataTaskMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE148021A5D378005FCC76 /* URLSessionDataTaskMock.swift */; };
 		07CE148621A5D379005FCC76 /* URLManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE148121A5D378005FCC76 /* URLManagerTests.swift */; };
 		07CE148921A5D648005FCC76 /* PagingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE148821A5D648005FCC76 /* PagingViewModelTests.swift */; };
+		07CE14D821A6FE05005FCC76 /* PasteBinListVCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE14D721A6FE05005FCC76 /* PasteBinListVCSpec.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* PasteBinListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* PasteBinListVC.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -87,6 +88,7 @@
 		07CE148021A5D378005FCC76 /* URLSessionDataTaskMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskMock.swift; sourceTree = "<group>"; };
 		07CE148121A5D378005FCC76 /* URLManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLManagerTests.swift; sourceTree = "<group>"; };
 		07CE148821A5D648005FCC76 /* PagingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewModelTests.swift; sourceTree = "<group>"; };
+		07CE14D721A6FE05005FCC76 /* PasteBinListVCSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteBinListVCSpec.swift; sourceTree = "<group>"; };
 		14F6A7B9A3D59134797D86CD /* Pods_FireCache_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		177451D7E70FEB0A942AA6E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		18AAC7B27B519ED40B7ECC3B /* Pods_FireCache_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 		07CE146F21A5C991005FCC76 /* Example App */ = {
 			isa = PBXGroup;
 			children = (
+				07CE14D621A6FDCF005FCC76 /* Controller */,
 				07CE146D21A5C979005FCC76 /* Models */,
 				07CE147B21A5D378005FCC76 /* Network */,
 				07CE148721A5D5A9005FCC76 /* ViewModel */,
@@ -243,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				07CE147D21A5D378005FCC76 /* Mock */,
+				07CE147E21A5D378005FCC76 /* Success.json */,
 				07CE147C21A5D378005FCC76 /* NetworkManagerTests.swift */,
 				07CE148121A5D378005FCC76 /* URLManagerTests.swift */,
 			);
@@ -252,7 +256,6 @@
 		07CE147D21A5D378005FCC76 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				07CE147E21A5D378005FCC76 /* Success.json */,
 				07CE147F21A5D378005FCC76 /* URLSessionMock.swift */,
 				07CE148021A5D378005FCC76 /* URLSessionDataTaskMock.swift */,
 			);
@@ -265,6 +268,14 @@
 				07CE148821A5D648005FCC76 /* PagingViewModelTests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		07CE14D621A6FDCF005FCC76 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				07CE14D721A6FE05005FCC76 /* PasteBinListVCSpec.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		0821D4978D879AC2A6221730 /* Frameworks */ = {
@@ -395,6 +406,7 @@
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
+				2E9A59F777952143C9D5690C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -473,6 +485,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2E9A59F777952143C9D5690C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FireCache_Tests/Pods-FireCache_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FireCache_Tests/Pods-FireCache_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		737E740690E7284E26D7F8E1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -572,6 +608,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07CE14D821A6FE05005FCC76 /* PasteBinListVCSpec.swift in Sources */,
 				07CE148421A5D379005FCC76 /* URLSessionMock.swift in Sources */,
 				07CE148621A5D379005FCC76 /* URLManagerTests.swift in Sources */,
 				07CE148921A5D648005FCC76 /* PagingViewModelTests.swift in Sources */,

@@ -165,9 +165,6 @@
                                                         </view>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M8J-fB-t8G">
                                                             <rect key="frame" x="0.0" y="50" width="375" height="200"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="200" id="BEh-YH-12n"/>
-                                                            </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
                                                                     <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
