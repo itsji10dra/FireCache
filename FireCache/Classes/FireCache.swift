@@ -26,9 +26,9 @@ public class FireCache<T: Cacheable> {
         }
     }
     
-    public var maximumSize: Int = FireConfiguration.defaultMaximumMemoryCost {
+    public var maxMemoryCost: Int = FireConfiguration.defaultMaximumMemoryCost {
         didSet {
-            memoryCache.totalCostLimit = maximumSize
+            memoryCache.totalCostLimit = maxMemoryCost
         }
     }
 
@@ -39,7 +39,7 @@ public class FireCache<T: Cacheable> {
         let bundleId =  Bundle.main.bundleIdentifier ?? ""
         let cacheName = bundleId + ".\(T.self)"
         memoryCache.name = cacheName
-        memoryCache.totalCostLimit = maximumSize
+        memoryCache.totalCostLimit = maxMemoryCost
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(clearMemoryCache),
@@ -73,35 +73,35 @@ public class FireCache<T: Cacheable> {
     
     // MARK: - Public Methods
     
-    public func store(_ object: T,
-                      forKey key: String,
-                      completionHandler: (() -> Void)? = nil) {
+    public func storeObject(_ object: T,
+                            forKey key: String,
+                            completionHandler: (() -> Void)? = nil) {
         memoryCache.setObject(object as AnyObject, forKey: key as NSString)
         lastAccessed[key] = Date()
         completionHandler?()
     }
     
-    public func remove(forKey key: String,
-                       completionHandler: (() -> Void)? = nil) {
+    public func removeObject(forKey key: String,
+                             completionHandler: (() -> Void)? = nil) {
         memoryCache.removeObject(forKey: key as NSString)
         lastAccessed.removeValue(forKey: key)
         completionHandler?()
     }
     
-    public func retrieve(forKey key: String) -> T? {
+    public func retrieveObject(forKey key: String) -> T? {
         guard let object = memoryCache.object(forKey: key as NSString) as? T else { return nil }
         lastAccessed[key] = Date()
         return object
     }
     
-    public func contains(forKey key: String) -> Bool {
+    public func containsObject(forKey key: String) -> Bool {
         return memoryCache.object(forKey: key as NSString) != nil
     }
     
     public func clearExpiredCache() {
         lastAccessed.forEach { (key, access) in
             if Date().timeIntervalSince(access) > cacheLifeSpan {
-                remove(forKey: key)
+                removeObject(forKey: key)
             }
         }
     }

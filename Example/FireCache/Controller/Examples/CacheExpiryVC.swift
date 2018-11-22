@@ -39,7 +39,7 @@ class CacheExpiryVC: UIViewController {
         super.viewDidLoad()
 
         //Cache Maximum Size
-        fireManager.cache.maximumSize = 100
+        fireManager.cache.maxMemoryCost = 100
         
         //Cache life
         fireManager.cache.cacheLifeSpan = 10
@@ -78,7 +78,7 @@ class CacheExpiryVC: UIViewController {
         
         let text = timerTextView.text ?? ""
         
-        let cacheExist = fireManager.cache.contains(forKey: url)
+        let cacheExist = fireManager.cache.containsObject(forKey: url)
         
         let newText = "\(counter) seconds passed. \(cacheExist ? "Object still cached." : "Not cached any more.")"
         
