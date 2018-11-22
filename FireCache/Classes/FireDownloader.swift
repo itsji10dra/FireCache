@@ -136,8 +136,8 @@ public class FireDownloader<T: Cacheable>: NSObject, URLSessionDataDelegate {
                         objectCache[key] = newObject
                         object = newObject
                     }
-                } catch let parsingError {
-                    error = parsingError
+                } catch let fireError {
+                    error = fireError
                 }
             }
             
