@@ -47,8 +47,8 @@ self.imageView.setImage(with: imageUrl)
 
 //Fetch image using the FireCache Image Manager
 FireImageManager.shared.fetch(with: url) { (image, url, error) in
-//Returns `url`
-//Returns either of `image` or `error`
+  //Returns `url`
+  //Returns either of `image` or `error`
 }
 ```
 
@@ -56,8 +56,8 @@ FireImageManager.shared.fetch(with: url) { (image, url, error) in
 Using default JSON Manager.
 ```swift
 FireJSONManager.shared.fetch(with: url) { (json, url, error) in
-//Returns `url`
-//Returns either of `json` or `error`
+  //Returns `url`
+  //Returns either of `json` or `error`
 }
 ```
 
@@ -73,17 +73,17 @@ You can create your own type for caching with FireCache. Let's consider new type
 ```swift
 //Extend you type with `Cacheable` protocol
 extension ZIP: Cacheable {
-public typealias Object = ZIP
-public static func convertFromData(_ data: Data) throws -> ZIP {
-guard let zip = ZIP(data: data) else { throw FireError.invalidData }
-return zip
-}
+  public typealias Object = ZIP
+  public static func convertFromData(_ data: Data) throws -> ZIP {
+  guard let zip = ZIP(data: data) else { throw FireError.invalidData }
+    return zip
+  }
 }
 
 let fireZIPManager = FireManager<ZIP>()
 fireZIPManager.fetch(with: url) { (zip, url, error) in
-//Returns `url`
-//Returns either of `zip` or `error`
+  //Returns `url`
+  //Returns either of `zip` or `error`
 }
 ```
 
