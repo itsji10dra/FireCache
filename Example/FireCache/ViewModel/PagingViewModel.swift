@@ -67,7 +67,7 @@ class PagingViewModel<T, E> where T:Decodable {
     }
     
     public func clearDataSource() {
-        lastPageLoaded = -1;
+        lastPageLoaded = -1
         dataSource.removeAll()
     }
     
