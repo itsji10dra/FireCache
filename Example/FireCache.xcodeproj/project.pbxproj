@@ -44,6 +44,12 @@
 		07CE14E421A723D3005FCC76 /* test-sample-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE14E321A723D3005FCC76 /* test-sample-2.png */; };
 		07CE14E821A7250B005FCC76 /* test-sample-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 07CE14E721A7250B005FCC76 /* test-sample-3.png */; };
 		07CE14EC21A72B09005FCC76 /* FireManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CE14EB21A72B09005FCC76 /* FireManagerTests.swift */; };
+		07D1222B21A805E100258781 /* FireCacheTests+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1222921A805C700258781 /* FireCacheTests+UIImage.swift */; };
+		07D1223021A8060900258781 /* FireCacheTests+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1222E21A805FA00258781 /* FireCacheTests+String.swift */; };
+		07D1223121A8061C00258781 /* FireCacheTests+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1222C21A805F100258781 /* FireCacheTests+JSON.swift */; };
+		07D1223321A8065D00258781 /* FireDownloaderTests+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1223221A8065D00258781 /* FireDownloaderTests+UIImage.swift */; };
+		07D1223521A8066900258781 /* FireDownloaderTests+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1223421A8066900258781 /* FireDownloaderTests+String.swift */; };
+		07D1223721A8067100258781 /* FireDownloaderTests+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D1223621A8067100258781 /* FireDownloaderTests+JSON.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* PasteBinListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* PasteBinListVC.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -102,6 +108,12 @@
 		07CE14E321A723D3005FCC76 /* test-sample-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test-sample-2.png"; sourceTree = "<group>"; };
 		07CE14E721A7250B005FCC76 /* test-sample-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test-sample-3.png"; sourceTree = "<group>"; };
 		07CE14EB21A72B09005FCC76 /* FireManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireManagerTests.swift; sourceTree = "<group>"; };
+		07D1222921A805C700258781 /* FireCacheTests+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireCacheTests+UIImage.swift"; sourceTree = "<group>"; };
+		07D1222C21A805F100258781 /* FireCacheTests+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireCacheTests+JSON.swift"; sourceTree = "<group>"; };
+		07D1222E21A805FA00258781 /* FireCacheTests+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireCacheTests+String.swift"; sourceTree = "<group>"; };
+		07D1223221A8065D00258781 /* FireDownloaderTests+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireDownloaderTests+UIImage.swift"; sourceTree = "<group>"; };
+		07D1223421A8066900258781 /* FireDownloaderTests+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireDownloaderTests+String.swift"; sourceTree = "<group>"; };
+		07D1223621A8067100258781 /* FireDownloaderTests+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireDownloaderTests+JSON.swift"; sourceTree = "<group>"; };
 		14F6A7B9A3D59134797D86CD /* Pods_FireCache_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		177451D7E70FEB0A942AA6E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		18AAC7B27B519ED40B7ECC3B /* Pods_FireCache_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -296,7 +308,13 @@
 				07CE14DE21A7121D005FCC76 /* Images */,
 				07CE14DF21A7124C005FCC76 /* TestHelper.swift */,
 				07CE14DA21A70F34005FCC76 /* FireCacheTests.swift */,
+				07D1222921A805C700258781 /* FireCacheTests+UIImage.swift */,
+				07D1222E21A805FA00258781 /* FireCacheTests+String.swift */,
+				07D1222C21A805F100258781 /* FireCacheTests+JSON.swift */,
 				07CE14E121A71BEC005FCC76 /* FireDownloaderTests.swift */,
+				07D1223221A8065D00258781 /* FireDownloaderTests+UIImage.swift */,
+				07D1223421A8066900258781 /* FireDownloaderTests+String.swift */,
+				07D1223621A8067100258781 /* FireDownloaderTests+JSON.swift */,
 				07CE14EB21A72B09005FCC76 /* FireManagerTests.swift */,
 			);
 			path = FireCache;
@@ -645,16 +663,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D1223521A8066900258781 /* FireDownloaderTests+String.swift in Sources */,
+				07D1223321A8065D00258781 /* FireDownloaderTests+UIImage.swift in Sources */,
 				07CE14D821A6FE05005FCC76 /* PasteBinListVCSpec.swift in Sources */,
 				07CE14E021A7124C005FCC76 /* TestHelper.swift in Sources */,
 				07CE148421A5D379005FCC76 /* URLSessionMock.swift in Sources */,
 				07CE148621A5D379005FCC76 /* URLManagerTests.swift in Sources */,
 				07CE14E221A71BEC005FCC76 /* FireDownloaderTests.swift in Sources */,
+				07D1223021A8060900258781 /* FireCacheTests+String.swift in Sources */,
 				07CE14EC21A72B09005FCC76 /* FireManagerTests.swift in Sources */,
 				07CE14DB21A70F34005FCC76 /* FireCacheTests.swift in Sources */,
+				07D1223121A8061C00258781 /* FireCacheTests+JSON.swift in Sources */,
 				07CE148921A5D648005FCC76 /* PagingViewModelTests.swift in Sources */,
 				07CE148221A5D379005FCC76 /* NetworkManagerTests.swift in Sources */,
 				07CE147A21A5D33B005FCC76 /* UserTests.swift in Sources */,
+				07D1223721A8067100258781 /* FireDownloaderTests+JSON.swift in Sources */,
+				07D1222B21A805E100258781 /* FireCacheTests+UIImage.swift in Sources */,
 				07CE147921A5D124005FCC76 /* PostTests.swift in Sources */,
 				07CE148521A5D379005FCC76 /* URLSessionDataTaskMock.swift in Sources */,
 			);
