@@ -14,6 +14,8 @@ let testImageData: Data = Data(base64Encoded: testImageString)!
 
 let jsonURL = URL(string: "https://jsonplaceholder.typicode.com/todos/1")!
 
+let stringURL = URL(string: "https://pastebin.com/raw/B75vJCLX")!
+
 let errorURL = URL(string: "https://abc.com")!
 
 let imageURL = URL(string: "https://avatars0.githubusercontent.com/u/13048696?s=460&v=4")!

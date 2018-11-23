@@ -13,10 +13,8 @@ extension FireDownloaderTests {
     
     func testDownloadString() {
         let expectation = self.expectation(description: "Wait for downloading string")
-        
-        let url = URL(string: "https://pastebin.com/raw/B75vJCLX")!
-        
-        _ = stringDownloader.downloadObject(with: url) { (string, error) in
+                
+        _ = stringDownloader.downloadObject(with: stringURL) { (string, error) in
             XCTAssertNotNil(string)
             XCTAssertNil(error)
             expectation.fulfill()

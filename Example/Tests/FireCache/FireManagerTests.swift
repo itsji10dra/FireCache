@@ -11,15 +11,15 @@ import FireCache
 
 class FireManagerTests: XCTestCase {
     
-    var manager: FireManager<UIImage>!
+    var imageManager: FireManager<UIImage>!
     
     override func setUp() {
         super.setUp()
-        manager = .init()
+        imageManager = .init()
     }
     
     override func tearDown() {
-        manager.invalidate()
+        imageManager.invalidate()
         super.tearDown()
     }
     
@@ -27,12 +27,12 @@ class FireManagerTests: XCTestCase {
         
         let expectation = self.expectation(description: "Wait for downloading image")
         
-        manager.fetch(with: imageURL) { (image, url, error) in
+        imageManager.fetch(with: imageURL) { (image, url, error) in
             XCTAssertNotNil(image)
             XCTAssertNil(error)
             XCTAssertEqual(imageURL, url)
             
-            let isCached = self.manager.cache.containsObject(forKey: imageURL.absoluteString)
+            let isCached = self.imageManager.cache.containsObject(forKey: imageURL.absoluteString)
             XCTAssertTrue(isCached)
             expectation.fulfill()
         }
@@ -48,14 +48,12 @@ class FireManagerTests: XCTestCase {
         
         let expectation = self.expectation(description: "Wait for downloading image")
         
-        let urlToLoad = URL(string: "https://pastebin.com/raw/B75vJCLX")!
-
-        manager.fetch(with: urlToLoad) { (image, url, error) in
+        imageManager.fetch(with: stringURL) { (image, url, error) in
             XCTAssertNil(image)
             XCTAssertNotNil(error)
-            XCTAssertEqual(urlToLoad, url)
+            XCTAssertEqual(stringURL, url)
             
-            let isCached = self.manager.cache.containsObject(forKey: urlToLoad.absoluteString)
+            let isCached = self.imageManager.cache.containsObject(forKey: stringURL.absoluteString)
             XCTAssertFalse(isCached)
             expectation.fulfill()
         }
