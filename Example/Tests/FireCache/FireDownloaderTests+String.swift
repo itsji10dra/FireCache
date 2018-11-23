@@ -31,10 +31,8 @@ extension FireDownloaderTests {
     
     func testDownloadStringWithError() {
         let expectation = self.expectation(description: "Wait for throwing error")
-        
-        let url = URL(string: "https://abc.com")!
-        
-        _ = stringDownloader.downloadObject(with: url) { (string, error) in
+                
+        _ = stringDownloader.downloadObject(with: errorURL) { (string, error) in
             XCTAssertNotNil(error)
             XCTAssertNil(string)
             expectation.fulfill()
@@ -50,9 +48,7 @@ extension FireDownloaderTests {
     func testDownloadJSONUsingStringDownloader() {
         let expectation = self.expectation(description: "Wait for downloading JSON")
         
-        let url = URL(string: "https://jsonplaceholder.typicode.com/todos/1")!
-        
-        _ = stringDownloader.downloadObject(with: url) { (json, error) in
+        _ = stringDownloader.downloadObject(with: jsonURL) { (json, error) in
             XCTAssertNil(error)
             XCTAssertNotNil(json)
             expectation.fulfill()
@@ -68,9 +64,7 @@ extension FireDownloaderTests {
     func testDownloadImageUsingStringDownloader() {
         let expectation = self.expectation(description: "Wait for downloading JSON")
         
-        let url = URL(string: "https://avatars0.githubusercontent.com/u/13048696?s=460&v=4")!
-        
-        _ = stringDownloader.downloadObject(with: url) { (image, error) in
+        _ = stringDownloader.downloadObject(with: imageURL) { (image, error) in
             XCTAssertNotNil(error)
             XCTAssertNil(image)
             expectation.fulfill()

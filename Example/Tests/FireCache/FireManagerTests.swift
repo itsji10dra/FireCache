@@ -26,15 +26,13 @@ class FireManagerTests: XCTestCase {
     func testFetchWithImage() {
         
         let expectation = self.expectation(description: "Wait for downloading image")
-
-        let urlToLoad = URL(string: "https://avatars0.githubusercontent.com/u/13048696?s=460&v=4")!
         
-        manager.fetch(with: urlToLoad) { (image, url, error) in
+        manager.fetch(with: imageURL) { (image, url, error) in
             XCTAssertNotNil(image)
             XCTAssertNil(error)
-            XCTAssertEqual(urlToLoad, url)
+            XCTAssertEqual(imageURL, url)
             
-            let isCached = self.manager.cache.containsObject(forKey: urlToLoad.absoluteString)
+            let isCached = self.manager.cache.containsObject(forKey: imageURL.absoluteString)
             XCTAssertTrue(isCached)
             expectation.fulfill()
         }
