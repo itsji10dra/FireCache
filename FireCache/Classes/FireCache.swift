@@ -59,11 +59,19 @@ public class FireCache<T: Cacheable> {
     // MARK: - Private Methods
 
     private func initiateTimer() {
-        expiryCheckTimer = Timer.scheduledTimer(withTimeInterval: expiryCheckTimeInterval,
-                                                repeats: true,
-                                                block: { [weak self] _ in
-                                                    self?.clearExpiredCache()
-        })
+        if #available(iOS 10.0, *) {
+            expiryCheckTimer = Timer.scheduledTimer(withTimeInterval: expiryCheckTimeInterval,
+                                                    repeats: true,
+                                                    block: { [weak self] _ in
+                                                        self?.clearExpiredCache()
+            })
+        } else {
+            expiryCheckTimer = Timer.scheduledTimer(timeInterval: expiryCheckTimeInterval,
+                                                    target: self,
+                                                    selector: #selector(clearExpiredCache),
+                                                    userInfo: nil,
+                                                    repeats: true)
+        }
     }
     
     private func resetTimer() {
@@ -98,6 +106,7 @@ public class FireCache<T: Cacheable> {
         return memoryCache.object(forKey: key as NSString) != nil
     }
     
+    @objc
     public func clearExpiredCache() {
         lastAccessed.forEach { (key, access) in
             if Date().timeIntervalSince(access) > cacheLifeSpan {
