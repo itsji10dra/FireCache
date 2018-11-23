@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/itsji10dra/FireCache.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/itsji10dra'
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '8.0'
 
   s.source_files = 'FireCache/Classes/**/*'
   

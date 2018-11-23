@@ -121,7 +121,6 @@
 		07D1223A21A808CA00258781 /* FireManagerTests+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireManagerTests+String.swift"; sourceTree = "<group>"; };
 		07D1223C21A808D300258781 /* FireManagerTests+JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireManagerTests+JSON.swift"; sourceTree = "<group>"; };
 		14F6A7B9A3D59134797D86CD /* Pods_FireCache_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		177451D7E70FEB0A942AA6E0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		18AAC7B27B519ED40B7ECC3B /* Pods_FireCache_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireCache_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BD32EFF4CA0EFCBEBAD6BEE /* Pods-FireCache_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireCache_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireCache_Tests/Pods-FireCache_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		480F42655AF94142C592B4BA /* Pods-FireCache_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireCache_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireCache_Example/Pods-FireCache_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,8 +132,6 @@
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACE51AFB9204008FA782 /* FireCache_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FireCache_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7EAD17205CB3903CC3CD280A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		DFB208F6233CDA3B83FC6111 /* FireCache.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FireCache.podspec; path = ../FireCache.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FAB8FFB9753F164F574843F7 /* Pods-FireCache_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireCache_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireCache_Example/Pods-FireCache_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -352,7 +349,6 @@
 			isa = PBXGroup;
 			children = (
 				07BA3A14219F3F7600BCE1DE /* Challenge.pdf */,
-				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for FireCache */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
@@ -414,16 +410,6 @@
 				607FACEA1AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				DFB208F6233CDA3B83FC6111 /* FireCache.podspec */,
-				7EAD17205CB3903CC3CD280A /* README.md */,
-				177451D7E70FEB0A942AA6E0 /* LICENSE */,
-			);
-			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
 		D3091D34F99C8728E8B45D16 /* Pods */ = {
