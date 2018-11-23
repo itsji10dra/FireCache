@@ -30,6 +30,7 @@ FireCache is a networking library that fetches and caches images, JSON, string v
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'FireCache/Classes/**/*'
+  s.swift_version = '4.2'
   
   # s.resource_bundles = {
   #   'FireCache' => ['FireCache/Assets/*.png']
