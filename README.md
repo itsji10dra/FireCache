@@ -1,7 +1,7 @@
 # FireCache
 ##### A Swift Networking Library
 
-FireCache is a networking library that fetches and caches images, JSON, string via HTTP in Swift, and is flexible to be extended to custom types.
+FireCache is a networking library that fetches and caches images, JSON, string via HTTP in Swift and is flexible to be extended to custom types.
 
 ## Features
 
