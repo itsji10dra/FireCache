@@ -9,7 +9,6 @@
 import XCTest
 import FireCache
 
-
 extension FireDownloaderTests {
     
     func testDownloadJSON() {
