@@ -7,12 +7,12 @@
 
 public enum FireError: Error {
     
-    case invalidResponse
+    case invalidData
     
     var localizedDescription: String {
         switch self {
-        case .invalidResponse:
-            return "Invalid data received. Unable to transform to cacheable object."
+        case .invalidData:
+            return "Invalid data received. Unable to transform cacheable object."
         }
     }
 }

@@ -23,7 +23,7 @@ extension UIImage: Cacheable {
     public typealias Object = UIImage
     
     public static func convertFromData(_ data: Data) throws -> UIImage {
-        guard let image = UIImage(data: data) else { throw FireError.invalidResponse }
+        guard let image = UIImage(data: data) else { throw FireError.invalidData }
         return image
     }
 }
@@ -33,7 +33,7 @@ extension String: Cacheable {
     public typealias Object = String
     
     public static func convertFromData(_ data: Data) throws -> String {
-        guard let string = String(data: data, encoding: .utf8) else { throw FireError.invalidResponse  }
+        guard let string = String(data: data, encoding: .utf8) else { throw FireError.invalidData  }
         return string
     }
 }
@@ -54,7 +54,7 @@ public enum JSON: Cacheable {
         case let array as [AnyObject]:
             return JSON.array(array)
         default:
-            throw FireError.invalidResponse
+            throw FireError.invalidData
         }
     }
     
