@@ -112,3 +112,8 @@ FireCache is licensed under MIT Open source license.
 * https://www.linkedin.com/in/itsji10dra/
 * https://stackoverflow.com/users/story/2713079/
 
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/itsji10dra/FireCache/badge.svg?style=beer-square)](https://beerpay.io/itsji10dra/FireCache)  [![Beerpay](https://beerpay.io/itsji10dra/FireCache/make-wish.svg?style=flat-square)](https://beerpay.io/itsji10dra/FireCache?focus=wish)
