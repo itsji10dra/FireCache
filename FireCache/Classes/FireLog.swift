@@ -34,12 +34,12 @@ public struct FireLog {
     internal static func debug(message: @autoclosure () -> String, error: Error? = nil) {
         #if DEBUG
             if FireConfiguration.showLogs {
-                log(.debug, message, error)
+                log(.debug, message(), error)
             }
         #endif
     }
     
     internal static func error(message: @autoclosure () -> String, error: Error? = nil) {
-        log(.error, message, error)
+        log(.error, message(), error)
     }
 }

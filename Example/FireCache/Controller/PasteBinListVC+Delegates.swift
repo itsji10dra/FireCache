@@ -84,6 +84,8 @@ extension PasteBinListVC: UICollectionViewDataSource, UICollectionViewDataSource
             let numberOfColumns: CGFloat = isMoreThanHalfOfScreen ? 2 : 1
 
             return CGSize(width: collectionView.frame.width/numberOfColumns, height: cellHeight)
+        @unknown default:
+            fatalError("New Idiom Encountered")
         }
     }
 }
