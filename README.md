@@ -15,7 +15,7 @@ FireCache is a networking library that fetches and caches images, JSON, string v
 
 ## Requirements
 
-Requires at least iOS 8 or above.
+Requires at least iOS 9 or above.
 
 ## Installation
 
